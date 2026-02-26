@@ -12,17 +12,12 @@ function setupSpil()
 
 function drawSpil()
 {
-  // roter og tegn omkring midten; brug push/pop så translate ikke akkumuleres
-  push();
   translate(centrumX, centrumY);
   fill(255);
   stroke(100);
   cirkel.roter(0,0,300);
   firkant1.roter(-2.5,10,5,100);
-  firkant2.roter(-2.5,10,5,100);
-  pop();
-  // nulstil fyld til noget mørkt for efterfølgende tegninger
-  
+  firkant2.roter(-2.5,10,5,100); 
 }
 
 
