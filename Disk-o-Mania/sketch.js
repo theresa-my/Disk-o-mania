@@ -2,16 +2,40 @@ function setup() {
     createCanvas(800, 600);
 
     state = 0;
-
-    setupStart();
-    setupMenu();
-    setupSpil();
-    setupGameover();
+    stateold = 0;
 }
 
 function draw() {
     background(220);
-        if (state==0)
+
+    ////State machine
+    //Setup
+
+    if (state == stateold)
+    {
+        return
+    }
+     else if (state == 1)
+    {
+        setupStart();
+    }
+     else if (state==2)
+    {
+        setupMenu();
+    }
+     else if (state==3)
+    {
+        setupSpil();
+    }
+     else if (state==4)
+    {
+        setupGameover();
+    }
+
+    stateold = state
+
+    //Draw
+    if (state==0)
     {
         drawStart();
     }
