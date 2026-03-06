@@ -33,6 +33,9 @@ function drawSpil()
   pop();
   
   text(cirkel.yReel, 300, 60);
+
+
+  PlayerDraw()
 }
 
 
@@ -103,5 +106,5 @@ class RoterendeObjekt
     }
 
 
-    PlayerDraw()
+    
   }
