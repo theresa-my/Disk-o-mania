@@ -7,10 +7,12 @@ function setupSpil()
   angleMode(radians);
   
   cirkel = new RoterendeObjekt(0,0.1,"cirkel")
-  firkant1 = new RoterendeObjekt(0,0.1,"firkant")
-  firkant2 = new RoterendeObjekt(90,0.1,"firkant")
-  firkant3 = new RoterendeObjekt(90,0.1,"firkant")
+  firkant1 = new RoterendeObjekt(0.0*PI,0.01,"firkant")
+  firkant2 = new RoterendeObjekt(0.5*PI,0.01,"firkant")
+  firkant3 = new RoterendeObjekt(1.0*PI,0.01,"firkant")
+  firkant4 = new RoterendeObjekt(1.5*PI,0.01,"firkant")
 }
+
 
 function drawSpil()
 {
@@ -20,13 +22,15 @@ function drawSpil()
   cirkel.roter(0,0,300);
   firkant1.roter(-2.5,10,5,100);
   firkant2.roter(-2.5,10,5,100); 
-  firkant3.roter(0,0,100,100); 
+  firkant3.roter(-2.5,10,5,100); 
+  firkant4.roter(-2.5,10,5,100); 
   push();
   fill(0);
-  text(firkant3.x1Reel, -300 , -200);
-  circle(firkant3.x2Reel, firkant3.y2Reel, 10);
+  text(firkant2.x1Reel, -300 , -200);
+  circle(firkant2.x2Reel, firkant2.y2Reel, 10);
   pop();
- // text(cirkel.yReel, 300, 60);
+  
+  text(cirkel.yReel, 300, 60);
 }
 
 
@@ -37,7 +41,7 @@ class RoterendeObjekt
     constructor(angle, angleSpeed, polygon)
     {
       this.angleSpeed = angleSpeed;
-      this.angle = angle;
+        this.angle = angle;
       this.polygon = polygon;
     }
     
@@ -45,12 +49,11 @@ class RoterendeObjekt
     {
       push();
       this.angle += this.angleSpeed;
-      rotate(radians(this.angle));
+      rotate(this.angle);
       this.cirkel(x, y, diameterwidth);
       this.firkant(x, y, diameterwidth, height);
-
-     
       pop();
+      this.ReturnerKoordinater(x, y);
     }
     
     cirkel(x, y, diameter)
@@ -71,6 +74,14 @@ class RoterendeObjekt
       {
         rect(x, y, width, height);
 
+      }
+    }
+
+    ReturnerKoordinater(x, y)
+    {
+     
+      if (this.polygon == "firkant")
+      {   
         //retuner koordinater
         this.x1Reel = x * cos(this.angle)-y * sin(this.angle);
         this.y1Reel = x * sin(this.angle)+y * cos(this.angle);
@@ -83,6 +94,9 @@ class RoterendeObjekt
 
         this.x4Reel = x * cos(this.angle)+ (y+height) * sin(this.angle);
         this.y4Reel = x * sin(this.angle)+ (y+height) * cos(this.angle);  
+      
+     
+        circle(this.x1Reel, this.y1Reel, 10);
       }
     }
   }
