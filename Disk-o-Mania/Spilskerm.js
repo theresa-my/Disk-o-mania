@@ -11,6 +11,8 @@ function setupSpil()
   firkant2 = new RoterendeObjekt(0.5*PI,0.01,"firkant")
   firkant3 = new RoterendeObjekt(1.0*PI,0.01,"firkant")
   firkant4 = new RoterendeObjekt(1.5*PI,0.01,"firkant")
+
+  PlayerSetup();
 }
 
 
@@ -99,4 +101,7 @@ class RoterendeObjekt
         circle(this.x1Reel, this.y1Reel, 10);
       }
     }
+
+
+    PlayerDraw()
   }
