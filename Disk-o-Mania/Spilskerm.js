@@ -31,6 +31,10 @@ function drawSpil()
   firkant3.roter(-2.5,10,5,100); 
   firkant4.roter(-2.5,10,5,100); 
   
+  text(cirkel.yReel, 300, 60);
+
+
+  PlayerDraw()
 }
 
 
@@ -100,4 +104,6 @@ class RoterendeObjekt
       }
     }
 
+
+    
   }
