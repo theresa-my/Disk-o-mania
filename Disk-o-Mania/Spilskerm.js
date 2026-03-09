@@ -9,6 +9,7 @@ function setupSpil()
   count = 0;
   aktuelAngleSpeed = 0.01;
   angleMode(radians);
+  acc = 0;
   
   //nye roterende objekter
   cirkel = new RoterendeObjekt(0,aktuelAngleSpeed ,"cirkel")
@@ -30,30 +31,37 @@ function drawSpil()
   fill(255);
   stroke(100);
 
-  cirkel.roter(0,0,300);
-  firkant1.roter(-2.5,10,5,100);
-  firkant2.roter(-2.5,10,5,100); 
-  firkant3.roter(-2.5,10,5,100); 
-  firkant4.roter(-2.5,10,5,100); 
+  cirkel.roter(0,0,500);
+  firkant1.roter(-2.5,10,5,200);
+  firkant2.roter(-2.5,10,5,200); 
+  firkant3.roter(-2.5,10,5,200); 
+  firkant4.roter(-2.5,10,5,200); 
   
 
   //Spiller
   PlayerDraw()
 
-  //Udregn vinkelhastighed
-  vinkelHastighed = 2*PI/(1/(aktuelAngleSpeed * 60))
-  print((vinkelHastighed), 10, 10)
-  
+  //Udregn vinkelhastighed og radius for spillerens position
+  vinkelHastighed = 2*PI/(1/(aktuelAngleSpeed * 60))*0.02
+  radius = Math.sqrt(xPlayer**2 + yPlayer**2)
   //Is eller ej
-  /*
+  
   if (level == "Is")
   {
-    acc = vinkelhastighed^2 * (xPlayer^2+yPlayer^2)^(1/2)
+    acc = vinkelHastighed ** 2 * radius;
 
-    XPlayer = xPlayer - acc*cos(dirPlayer);
-    YPlayer = yPlayer - acc*sin(dirPlayer);
-  } 
-    */
+
+    if (xPlayer > 0)
+    {
+      xPlayer += acc * cos(atan(yPlayer/xPlayer));
+      yPlayer += acc * sin(atan(yPlayer/xPlayer));
+    } else
+    {
+    xPlayer -= acc * cos(atan(yPlayer/xPlayer));
+    yPlayer -= acc * sin(atan(yPlayer/xPlayer));
+    }
+  }
+    
 }
 
 
