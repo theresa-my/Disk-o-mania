@@ -1,5 +1,6 @@
 function PlayerSetup()
 {
+    Playerspeed = 1.8;
     xPlayer = 10;    
     yPlayer = 50;
     rPlayer = 20;  // spillerens radius (størrelse)
@@ -13,12 +14,12 @@ function PlayerDraw()
 {
     //player movement
     if (keyIsDown(UP_ARROW)) {
-        xPlayer += cos(dirPlayer) * 1.3;
-        yPlayer += sin(dirPlayer) * 1.3;
+        xPlayer += cos(dirPlayer) * Playerspeed;
+        yPlayer += sin(dirPlayer) * Playerspeed;
         }
     if (keyIsDown(DOWN_ARROW)) {
-        xPlayer -= cos(dirPlayer) * 1.3;
-        yPlayer -= sin(dirPlayer) * 1.3;
+        xPlayer -= cos(dirPlayer) * Playerspeed;
+        yPlayer -= sin(dirPlayer) * Playerspeed;
         }
     if (keyIsDown(LEFT_ARROW)) {
         dirPlayer -= 0.05;
