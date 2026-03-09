@@ -41,26 +41,10 @@ function drawSpil()
   //Spiller
   PlayerDraw()
 
-  //Udregn vinkelhastighed og radius for spillerens position
-  vinkelHastighed = 2*PI/(1/(aktuelAngleSpeed * 60))*0.02
-  radius = Math.sqrt(xPlayer**2 + yPlayer**2)
-  //Is eller ej
   
-  if (level == "Is")
-  {
-    acc = vinkelHastighed ** 2 * radius;
 
 
-    if (xPlayer > 0)
-    {
-      xPlayer += acc * cos(atan(yPlayer/xPlayer));
-      yPlayer += acc * sin(atan(yPlayer/xPlayer));
-    } else
-    {
-    xPlayer -= acc * cos(atan(yPlayer/xPlayer));
-    yPlayer -= acc * sin(atan(yPlayer/xPlayer));
-    }
-  }
+
     
 }
 
