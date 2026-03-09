@@ -7,14 +7,15 @@ function setupSpil()
   //Variabler til roterende objekter
   angle = 0
   count = 0;
+  aktuelAngleSpeed = 0.01;
   angleMode(radians);
   
   //nye roterende objekter
-  cirkel = new RoterendeObjekt(0,0.1,"cirkel")
-  firkant1 = new RoterendeObjekt(0.0*PI,0.01,"firkant")
-  firkant2 = new RoterendeObjekt(0.5*PI,0.01,"firkant")
-  firkant3 = new RoterendeObjekt(1.0*PI,0.01,"firkant")
-  firkant4 = new RoterendeObjekt(1.5*PI,0.01,"firkant")
+  cirkel = new RoterendeObjekt(0,aktuelAngleSpeed ,"cirkel")
+  firkant1 = new RoterendeObjekt(0.0*PI,aktuelAngleSpeed ,"firkant")
+  firkant2 = new RoterendeObjekt(0.5*PI,aktuelAngleSpeed ,"firkant")
+  firkant3 = new RoterendeObjekt(1.0*PI,aktuelAngleSpeed ,"firkant")
+  firkant4 = new RoterendeObjekt(1.5*PI,aktuelAngleSpeed ,"firkant")
 
   PlayerSetup();
 }
@@ -38,6 +39,21 @@ function drawSpil()
 
   //Spiller
   PlayerDraw()
+
+  //Udregn vinkelhastighed
+  vinkelHastighed = 2*PI/(1/(aktuelAngleSpeed * 60))
+  print((vinkelHastighed), 10, 10)
+  
+  //Is eller ej
+  /*
+  if (level == "Is")
+  {
+    acc = vinkelhastighed^2 * (xPlayer^2+yPlayer^2)^(1/2)
+
+    XPlayer = xPlayer - acc*cos(dirPlayer);
+    YPlayer = yPlayer - acc*sin(dirPlayer);
+  } 
+    */
 }
 
 
