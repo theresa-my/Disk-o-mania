@@ -12,18 +12,18 @@ function PlayerDraw()
 {
     //player movement
     if (keyIsDown(UP_ARROW)) {
-        xPlayer += cos(dirPlayer) * 5;
-        yPlayer += sin(dirPlayer) * 5;
+        xPlayer += cos(dirPlayer) * 1.3;
+        yPlayer += sin(dirPlayer) * 1.3;
         }
     if (keyIsDown(DOWN_ARROW)) {
-        xPlayer -= cos(dirPlayer) * 5;
-        yPlayer -= sin(dirPlayer) * 5;
+        xPlayer -= cos(dirPlayer) * 1.3;
+        yPlayer -= sin(dirPlayer) * 1.3;
         }
     if (keyIsDown(LEFT_ARROW)) {
-        dirPlayer -= 0.1;
+        dirPlayer -= 0.05;
         }
     if (keyIsDown(RIGHT_ARROW)) {
-        dirPlayer += 0.1;
+        dirPlayer += 0.05;
         }
     //draw player
     push();
