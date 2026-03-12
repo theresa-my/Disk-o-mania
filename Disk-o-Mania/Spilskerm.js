@@ -24,6 +24,8 @@ function setupSpil()
 
 function drawSpil()
 {
+ 
+
   // koordinatsystem fra centrum
   translate(centrumX, centrumY);
   
@@ -31,15 +33,21 @@ function drawSpil()
   fill(255);
   stroke(100);
 
+  if (level == "Is")
+  {
+  pop();
+  fill( 144, 195, 232);
   cirkel.roter(0,0,500);
+  pop();
+  }
   firkant1.roter(-2.5,10,5,200);
   firkant2.roter(-2.5,10,5,200); 
   firkant3.roter(-2.5,10,5,200); 
   firkant4.roter(-2.5,10,5,200); 
   
-
   //Spiller
   PlayerDraw()
+
 
   
 

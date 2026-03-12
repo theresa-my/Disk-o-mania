@@ -7,6 +7,11 @@ function PlayerSetup()
     playerDistance = dist(0, 0, xPlayer, yPlayer);  // afstand til centrum
     thetaPlayer = atan2(yPlayer, xPlayer);
     dirPlayer = 1;
+    //////////////
+    xPlayerDrejet = 0
+    yPlayerDrejet = 0
+    //////////////
+
 }
 
 
@@ -73,4 +78,23 @@ function PlayerDraw()
     dirPlayer += aktuelAngleSpeed;
 
     
+
+    //yPlayerDrejet = - (sin(cirkel.angle) * xPlayer - yPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
+    yPlayerDrejet = (yPlayer - xPlayer * cos(cirkel.angle)+yPlayer * sin(cirkel.angle)) / cos(cirkel.angle)
+    //xPlayerDrejet = (sin(cirkel.angle) * yPlayer + xPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
+    xPlayerDrejet = xPlayer * cos(cirkel.angle) + yPlayer
+    circle(xPlayerDrejet, yPlayerDrejet, rPlayer-5);
+
+
+    //Collition
+    
+
+
+
+
+
+
+
+
+
 }
