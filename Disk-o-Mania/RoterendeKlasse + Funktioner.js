@@ -101,7 +101,6 @@ class RoterendeObjekt
     distance = sqrt((distX*distX) + (distY*distY) );
 
     if (distance <= radius) {
-    return true;
+    Text("Game Over", 10, 10);
     }
-    return false;
     }
