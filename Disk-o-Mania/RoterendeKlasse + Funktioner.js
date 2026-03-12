@@ -72,3 +72,30 @@ class RoterendeObjekt
       }
     }
   }
+
+
+
+  
+    //Collition
+    function collition(CircleX, CircleY, radius, FirkantX, FirkantY, FirkantW, FirkantH)
+    {
+    testX = CircleX;
+    testY = CircleY;
+
+
+    if (CircleX < FirkantX)           testX = FirkantX;        // left edge
+    else if (CircleX > FirkantX+FirkantW)   testX = FirkantX+FirkantW;     // right edge
+
+    if (CircleY < FirkantY)           testY = FirkantY;        // top edge
+    else if (CircleY > FirkantY+FirkantH)   testY = FirkantY+FirkantH;     // bottom edge
+    
+    distX = CircleX-testX;
+    distY = CircleY-testY;
+    
+    distance = sqrt((distX*distX) + (distY*distY) );
+
+    if (distance <= radius) {
+    return true;
+    }
+    return false;
+    }

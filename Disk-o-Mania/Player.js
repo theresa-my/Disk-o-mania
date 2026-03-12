@@ -99,28 +99,6 @@ function PlayerDraw()
 
 
 
-    //Collition
-    function collition()
-    {
-    testX = CircleX;
-    testY = CircleY;
-
-
-    if (CircleX < rx)           testX = rx;        // left edge
-    else if (CircleX > rx+rw)   testX = rx+rw;     // right edge
-
-    if (CircleY < ry)           testY = ry;        // top edge
-    else if (CircleY > ry+rh)   testY = ry+rh;     // bottom edge
-
-    distX = CircleX-testX;
-    distY = CircleY-testY;
-    distance = sqrt( (distX*distX) + (distY*distY) );
-
-    if (distance <= radius) {
-    return true;
-    }
-    return false;
-    }
 
 
 
