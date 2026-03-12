@@ -12,9 +12,15 @@ class RoterendeObjekt
     roter(x, y, diameterwidth,height)
     {
       push();
+        
+
         //roter koordinatsystem med vinkel og hastighed
         this.angle += this.angleSpeed;
         rotate(this.angle);
+
+        /////
+        circle(xPlayerDrejet, yPlayerDrejet, 50);
+        /////
         
         //tegn objekt afhængigt af polygon type
         this.cirkel(x, y, diameterwidth);

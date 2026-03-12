@@ -80,9 +80,13 @@ function PlayerDraw()
     
 
     //yPlayerDrejet = - (sin(cirkel.angle) * xPlayer - yPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
-    yPlayerDrejet = (yPlayer - xPlayer * cos(cirkel.angle)+yPlayer * sin(cirkel.angle)) / cos(cirkel.angle)
+    //yPlayerDrejet = (yPlayer - xPlayer * cos(cirkel.angle)+yPlayer * sin(cirkel.angle)) / cos(cirkel.angle)
+    yPlayerDrejet = -xPlayer * sin(cirkel.angle) + yPlayer * cos(cirkel.angle)
+
     //xPlayerDrejet = (sin(cirkel.angle) * yPlayer + xPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
-    xPlayerDrejet = xPlayer * cos(cirkel.angle) + yPlayer
+    //xPlayerDrejet = xPlayer * cos(cirkel.angle) + yPlayer
+    xPlayerDrejet = xPlayer * cos(cirkel.angle) + yPlayer * sin(cirkel.angle)
+    
     circle(xPlayerDrejet, yPlayerDrejet, rPlayer-5);
 
 
