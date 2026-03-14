@@ -25,15 +25,12 @@ function setupSpil()
   {
     forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed ,"firkant"))
   }
-
   PlayerSetup();
 }
 
 
 function drawSpil()
 {
- 
-
   // koordinatsystem fra centrum
   translate(centrumX, centrumY);
   
