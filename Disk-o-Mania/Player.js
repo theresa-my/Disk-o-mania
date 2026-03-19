@@ -95,8 +95,12 @@ function PlayerDraw()
     {
       //collition(xPlayerDrejet, yPlayerDrejet, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].width, forhindringer[i].height);
       collition(xPlayerDrejet, yPlayerDrejet, rPlayer, firkant1.x, firkant1.y, firkant1.width, firkant1.height);
-      print(xPlayerDrejet, yPlayerDrejet);
-      print(firkant1.x, firkant1.y);
+    }
+      text(xPlayerDrejet, -210, 50);
+      text(yPlayerDrejet, -210, 60);
+
+      text(firkant1.x,-210,20);
+      text(firkant1.y,-210,30);
     }
 
         //collition(xPlayer, yPlayer, rPlayer,);
@@ -113,12 +117,3 @@ function PlayerDraw()
 
 
 
-
-
-
-
-
-
-
-
-}
