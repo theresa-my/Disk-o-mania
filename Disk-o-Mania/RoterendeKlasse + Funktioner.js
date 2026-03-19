@@ -11,6 +11,9 @@ class RoterendeObjekt
     
     roter(x, y, diameterwidth,height)
     {
+      this.x = x;
+      this.y = y;
+      
       push();
         
 
