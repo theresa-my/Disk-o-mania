@@ -76,7 +76,7 @@ function PlayerDraw()
     yPlayer = radius * sin(thetaPlayer);
 
     dirPlayer += aktuelAngleSpeed;
-
+    
     
     //Fra maple
     //yPlayerDrejet = - (sin(cirkel.angle) * xPlayer - yPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)

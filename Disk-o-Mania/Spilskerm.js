@@ -40,7 +40,7 @@ function drawSpil()
 
   if (level == "Is")
   {
-  pop();
+  push();
   fill( 144, 195, 232);
   cirkel.roter(0,0,500);
   pop();
