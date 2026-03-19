@@ -85,7 +85,7 @@ function PlayerDraw()
     yPlayerDrejet = -xPlayer * sin(cirkel.angle) + yPlayer * cos(cirkel.angle)
 
     //xPlayerDrejet = (sin(cirkel.angle) * yPlayer + xPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
-    text(cirkel.angle, 10, 10);
+  
     xPlayerDrejet = xPlayer * cos(cirkel.angle) + yPlayer * sin(cirkel.angle)
     
     circle(xPlayerDrejet, yPlayerDrejet, rPlayer-5);
@@ -93,19 +93,22 @@ function PlayerDraw()
 
     for (let i = 0; i < forhindringer.length; i++)
     {
-      //collition(xPlayerDrejet, yPlayerDrejet, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].width, forhindringer[i].height);
-      collition(xPlayerDrejet, yPlayerDrejet, rPlayer, firkant1.x, firkant1.y, firkant1.width, firkant1.height);
-    }
-      text(xPlayerDrejet, -210, 50);
-      text(yPlayerDrejet, -210, 60);
+      collition(xPlayerDrejet, yPlayerDrejet, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height);
+      //collition(xPlayerDrejet, yPlayerDrejet, rPlayer, firkant1.x, firkant1.y, firkant1.width, firkant1.height);
+    
+      text(forhindringer[i].x,-400,20);
+      text(forhindringer[i].y,-400,30);
 
-      text(firkant1.x,-210,20);
-      text(firkant1.y,-210,30);
+      text(xPlayerDrejet, -400, 50);
+      text(yPlayerDrejet, -400, 60);
+
+      text(cirkel.angle, -400, 80);
+
     }
 
         //collition(xPlayer, yPlayer, rPlayer,);
 
-
+}
 
 
 
