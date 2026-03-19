@@ -47,8 +47,9 @@ function PlayerDraw()
     //Udregn vinkelhastighed og radius for spillerens position
   vinkelHastighed = 2*PI/(1/(aktuelAngleSpeed * 60))*0.02
   radius = Math.sqrt(xPlayer**2 + yPlayer**2)
-  //Is eller ej
   
+  
+  //Is eller ej
   if (level == "Is")
   {
     acc = vinkelHastighed ** 2 * radius;
@@ -84,7 +85,7 @@ function PlayerDraw()
     yPlayerDrejet = -xPlayer * sin(cirkel.angle) + yPlayer * cos(cirkel.angle)
 
     //xPlayerDrejet = (sin(cirkel.angle) * yPlayer + xPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
-
+    text(cirkel.angle, 10, 10);
     xPlayerDrejet = xPlayer * cos(cirkel.angle) + yPlayer * sin(cirkel.angle)
     
     circle(xPlayerDrejet, yPlayerDrejet, rPlayer-5);
@@ -92,9 +93,12 @@ function PlayerDraw()
 
     for (let i = 0; i < forhindringer.length; i++)
     {
-      collition(xPlayerDrejet, yPlayerDrejet, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].width, forhindringer[i].height);
+      //collition(xPlayerDrejet, yPlayerDrejet, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].width, forhindringer[i].height);
+      collition(xPlayerDrejet, yPlayerDrejet, rPlayer, firkant1.x, firkant1.y, firkant1.width, firkant1.height);
+      print(xPlayerDrejet, yPlayerDrejet);
+      print(firkant1.x, firkant1.y);
     }
-    
+
         //collition(xPlayer, yPlayer, rPlayer,);
 
 

@@ -37,14 +37,20 @@ function drawSpil()
   //tegn roterende objekter
   fill(255);
   stroke(100);
-
+  
+  //Lav farve på is level
+  push();
   if (level == "Is")
   {
-  push();
-  fill( 144, 195, 232);
+    fill( 144, 195, 232);
+  } else 
+  {
+    fill (0,0,0);
+  }
+  
   cirkel.roter(0,0,500);
   pop();
-  }
+
   firkant1.roter(-2.5,10,5,200);
   firkant2.roter(-2.5,10,5,200); 
   firkant3.roter(-2.5,10,5,200); 
