@@ -21,7 +21,7 @@ function setupSpil()
   firkant3 = new RoterendeObjekt(1.0*PI,aktuelAngleSpeed ,"firkant")
   firkant4 = new RoterendeObjekt(1.5*PI,aktuelAngleSpeed ,"firkant")
 
-  for (let i = 0; i < 4; i++)
+  for (let i = 0; i < 1; i++)
   {
     forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed ,"firkant"))
   }
@@ -56,7 +56,7 @@ function drawSpil()
   firkant3.roter(-2.5,10,5,200); 
   firkant4.roter(-2.5,10,5,200); 
 
-  for (let i = 0; i < 4; i++)
+  for (let i = 0; i < forhindringer.length; i++)
   {
     forhindringer[i].roter(0, 100, 30, 60);
   }
