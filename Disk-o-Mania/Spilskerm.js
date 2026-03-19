@@ -38,7 +38,7 @@ function drawSpil()
   fill(255);
   stroke(100);
   
-  //Lav farve på is level
+  //Lav farve på is level + tegn cirkle
   push();
   if (level == "Is")
   {
@@ -49,13 +49,16 @@ function drawSpil()
   }
   
   cirkel.roter(0,0,500);
+  
   pop();
 
+  //tegn roterede objekter
   firkant1.roter(-2.5,10,5,200);
   firkant2.roter(-2.5,10,5,200); 
   firkant3.roter(-2.5,10,5,200); 
   firkant4.roter(-2.5,10,5,200); 
 
+  //tegn forhindringer
   for (let i = 0; i < forhindringer.length; i++)
   {
     forhindringer[i].roter(0, 100, 30, 60);
