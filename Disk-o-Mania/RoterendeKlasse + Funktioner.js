@@ -13,6 +13,8 @@ class RoterendeObjekt
     {
       this.x = x;
       this.y = y;
+      this.diameterwidth = diameterwidth;
+      this.height = height;
       
       push();
         
