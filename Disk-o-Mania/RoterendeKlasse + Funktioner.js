@@ -23,10 +23,6 @@ class RoterendeObjekt
         this.angle += this.angleSpeed;
         rotate(this.angle);
 
-        /////
-        circle(xPlayerDrejet, yPlayerDrejet, 50);
-        /////
-        
         //tegn objekt afhængigt af polygon type
         this.cirkel(x, y, diameterwidth);
         this.firkant(x, y, diameterwidth, height);
@@ -87,25 +83,29 @@ class RoterendeObjekt
 
 
   
-    //Collition
-    function collition(CircleX, CircleY, radius, FirkantX, FirkantY, FirkantW, FirkantH)
+    //Kollisions funktion mellem cirkel og firkant
+    //Taget fra https://www.jeffreythompson.org/collision-detection/circle-rect.php
+    function Kollision(CircleX, CircleY, diameter, FirkantX, FirkantY, FirkantW, FirkantH)
     {
-    testX = CircleX;
-    testY = CircleY;
+
+     testX = CircleX;
+     testY = CircleY;
 
 
-    if (CircleX < FirkantX)           testX = FirkantX;        // left edge
-    else if (CircleX > FirkantX+FirkantW)   testX = FirkantX+FirkantW;     // right edge
+     if (CircleX < FirkantX)           testX = FirkantX;        // left edge
+     else if (CircleX > FirkantX+FirkantW)   testX = FirkantX+FirkantW;     // right edge
 
-    if (CircleY < FirkantY)           testY = FirkantY;        // top edge
-    else if (CircleY > FirkantY+FirkantH)   testY = FirkantY+FirkantH;     // bottom edge
+     if (CircleY < FirkantY)           testY = FirkantY;        // top edge
+     else if (CircleY > FirkantY+FirkantH)   testY = FirkantY+FirkantH;     // bottom edge
     
-    distX = CircleX-testX;
-    distY = CircleY-testY;
+     distX = CircleX-testX;
+     distY = CircleY-testY;
     
-    distance = sqrt((distX*distX) + (distY*distY) );
-
-    if (distance <= radius) {
-    text("Game Over", -400, -400);
-    }
+     distanc = sqrt((distX*distX) + (distY*distY) );
+    
+     if (distanc <= diameter/2) 
+     {
+       fill(255,0,0);
+       text("Game Over", 0, 0);
+     }
     }

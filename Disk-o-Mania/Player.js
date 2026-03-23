@@ -5,19 +5,21 @@ function PlayerSetup()
     yPlayer = 50;
     rPlayer = 20;  // spillerens radius (størrelse)
     playerDistance = dist(0, 0, xPlayer, yPlayer);  // afstand til centrum
+    
+    //vinkel for spiller
     thetaPlayer = atan2(yPlayer, xPlayer);
     dirPlayer = 1;
-    //////////////
-    xPlayerDrejet = 0
+  
+    //drejede koordinater for spiller
+    xPlayerDrejet = 0 
     yPlayerDrejet = 0
-    //////////////
-
+    
 }
 
 
 function PlayerDraw()
 {
-    //player movement
+    //spiller bevægelse med piletaster
     if (keyIsDown(UP_ARROW)) {
         xPlayer += cos(dirPlayer) * Playerspeed;
         yPlayer += sin(dirPlayer) * Playerspeed;
@@ -35,7 +37,7 @@ function PlayerDraw()
 
     
 
-    //draw player
+    //tegn spiller
     push();
     fill(255,0,0);
     circle(xPlayer, yPlayer, rPlayer);
@@ -45,29 +47,29 @@ function PlayerDraw()
 
 
     //Udregn vinkelhastighed og radius for spillerens position
-  vinkelHastighed = 2*PI/(1/(aktuelAngleSpeed * 60))*0.02
-  radius = Math.sqrt(xPlayer**2 + yPlayer**2)
+    vinkelHastighed = 2*PI/(1/(aktuelAngleSpeed * 60))*0.02
+    radius = Math.sqrt(xPlayer**2 + yPlayer**2)
   
   
-  //Is eller ej
-  if (level == "Is")
-  {
-    acc = vinkelHastighed ** 2 * radius;
-
-
-    if (xPlayer > 0)
+    //Is eller ej
+    if (level == "Is")
     {
-      xPlayer += acc * cos(atan(yPlayer/xPlayer));
-      yPlayer += acc * sin(atan(yPlayer/xPlayer));
-    } else
-    {
-    xPlayer -= acc * cos(atan(yPlayer/xPlayer));
-    yPlayer -= acc * sin(atan(yPlayer/xPlayer));
+      acc = vinkelHastighed ** 2 * radius;
+
+      // få spilleren til at glide
+      if (xPlayer > 0)
+      {
+        xPlayer += acc * cos(atan(yPlayer/xPlayer));
+        yPlayer += acc * sin(atan(yPlayer/xPlayer));
+      } else
+      {
+        xPlayer -= acc * cos(atan(yPlayer/xPlayer));
+        yPlayer -= acc * sin(atan(yPlayer/xPlayer));
+      }
     }
-  }
 
    // opdater afstand og vinkel
-   radius = Math.sqrt(xPlayer**2 + yPlayer**2)
+    radius = Math.sqrt(xPlayer**2 + yPlayer**2)
    
     thetaPlayer = atan2(yPlayer, xPlayer);
 
@@ -79,34 +81,20 @@ function PlayerDraw()
     dirPlayer += aktuelAngleSpeed;
     
     
-    //Fra maple
+    //Konveter spillerens position til roteret koordinatsystem
+    //Lavet med Maple
     //yPlayerDrejet = - (sin(cirkel.angle) * xPlayer - yPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
-
     yPlayerDrejet = -xPlayer * sin(cirkel.angle) + yPlayer * cos(cirkel.angle)
 
     //xPlayerDrejet = (sin(cirkel.angle) * yPlayer + xPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
-  
     xPlayerDrejet = xPlayer * cos(cirkel.angle) + yPlayer * sin(cirkel.angle)
     
-    circle(xPlayerDrejet, yPlayerDrejet, rPlayer-5);
 
-
+    //tjek for kollision med forhindringer
     for (let i = 0; i < forhindringer.length; i++)
     {
-      collition(xPlayerDrejet, yPlayerDrejet, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height);
-      //collition(xPlayerDrejet, yPlayerDrejet, rPlayer, firkant1.x, firkant1.y, firkant1.width, firkant1.height);
-    
-      text(forhindringer[i].x,-400,20);
-      text(forhindringer[i].y,-400,30);
-
-      text(xPlayerDrejet, -400, 50);
-      text(yPlayerDrejet, -400, 60);
-
-      text(cirkel.angle, -400, 80);
-
+      Kollision(xPlayerDrejet, yPlayerDrejet, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height);
     }
-
-        //collition(xPlayer, yPlayer, rPlayer,);
 
 }
 
