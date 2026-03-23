@@ -6,7 +6,7 @@ function setup()
     state = 2;
 
     // !!!!!!!!!! Husk at overføre til menu senere !!!!!!!!!!
-    level = "Is"
+    level = "Iss"
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     stateold = 0;
