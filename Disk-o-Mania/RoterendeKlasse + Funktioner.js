@@ -138,15 +138,20 @@ class RoterendeObjekt
 
       if (koldir == "op") 
       {
+        CircleYDrejet = FirkantYDrejet - diameter/2
         CircleYDrejet -= 1.7;
+  
       } else if (koldir == "nede")
       {
+        CircleYDrejet = FirkantYDrejet + FirkantH + diameter/2
         CircleYDrejet += 1.7;
       } else if (koldir == "højre")
       {
+        CircleXDrejet = FirkantXDrejet + FirkantW + diameter/2
         CircleXDrejet += 1.7;
       } else if (koldir == "venstre")
       {
+        CircleXDrejet = FirkantXDrejet - diameter/2
         CircleXDrejet -= 1.7;
       }
 
