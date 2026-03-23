@@ -96,6 +96,9 @@ function PlayerDraw()
       Kollision(xPlayerDrejet, yPlayerDrejet, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height);
     }
 
+    xPlayer = xPlayerDrejet * cos(cirkel.angle)-yPlayerDrejet * sin(cirkel.angle);
+    yPlayer = xPlayerDrejet * sin(cirkel.angle)+yPlayerDrejet * cos(cirkel.angle);
+
 }
 
 
