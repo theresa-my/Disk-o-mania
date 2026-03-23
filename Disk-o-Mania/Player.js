@@ -80,25 +80,14 @@ function PlayerDraw()
 
     dirPlayer += aktuelAngleSpeed;
     
-    
-    //Konveter spillerens position til roteret koordinatsystem
-    //Lavet med Maple
-    //yPlayerDrejet = - (sin(cirkel.angle) * xPlayer - yPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
-    yPlayerDrejet = -xPlayer * sin(cirkel.angle) + yPlayer * cos(cirkel.angle)
-
-    //xPlayerDrejet = (sin(cirkel.angle) * yPlayer + xPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
-    xPlayerDrejet = xPlayer * cos(cirkel.angle) + yPlayer * sin(cirkel.angle)
-    
 
     //tjek for kollision med forhindringer
     for (let i = 0; i < forhindringer.length; i++)
     {
-      Kollision(xPlayerDrejet, yPlayerDrejet, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height);
+      Kollision(xPlayer, yPlayer, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height, forhindringer[i].angle);
     }
 
-    xPlayer = xPlayerDrejet * cos(cirkel.angle)-yPlayerDrejet * sin(cirkel.angle);
-    yPlayer = xPlayerDrejet * sin(cirkel.angle)+yPlayerDrejet * cos(cirkel.angle);
-
+    
 }
 
 

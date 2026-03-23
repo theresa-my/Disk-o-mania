@@ -23,7 +23,7 @@ function setupSpil()
 
   for (let i = 0; i < 1; i++)
   {
-    forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed ,"firkant"))
+    forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed+0.03 ,"firkant"))
   }
   PlayerSetup();
 }
