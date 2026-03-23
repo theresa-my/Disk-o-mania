@@ -85,7 +85,7 @@ class RoterendeObjekt
   
     //Kollisions funktion mellem cirkel og firkant
     //Taget fra https://www.jeffreythompson.org/collision-detection/circle-rect.php
-    function Kollision(CircleX, CircleY, diameter, FirkantXDrejet, FirkantYDrejet, FirkantW, FirkantH, Vinkel)
+    function Kollision(CircleX, CircleY, diameter, FirkantXDrejet, FirkantYDrejet, FirkantW, FirkantH, Vinkel,angleSpeed)
     {
 
       //Konveter spillerens position til roteret koordinatsystem
@@ -160,6 +160,11 @@ class RoterendeObjekt
       xPlayer = CircleXDrejet * cos(Vinkel)-CircleYDrejet * sin(Vinkel);
       yPlayer = CircleXDrejet * sin(Vinkel)+CircleYDrejet * cos(Vinkel);
 
-      print(Vinkel);
+
+      xPlayerHastighed = -cos(Vinkel) * angleSpeed * radius;
+      yPlayerHastighed = -sin(Vinkel) * angleSpeed * radius;
+
+
+
      }
     }

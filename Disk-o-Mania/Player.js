@@ -1,8 +1,11 @@
 function PlayerSetup()
 {
-    Playerspeed = 1.8;
+    PlayerAcceleration = 0.1;
     xPlayer = 10;    
     yPlayer = 50;
+    xPlayerHastighed = 0;
+    yPlayerHastighed = 0;
+
     rPlayer = 20;  // spillerens radius (størrelse)
     playerDistance = dist(0, 0, xPlayer, yPlayer);  // afstand til centrum
     
@@ -21,12 +24,12 @@ function PlayerDraw()
 {
     //spiller bevægelse med piletaster
     if (keyIsDown(UP_ARROW)) {
-        xPlayer += cos(dirPlayer) * Playerspeed;
-        yPlayer += sin(dirPlayer) * Playerspeed;
+        xPlayerHastighed += cos(dirPlayer) * PlayerAcceleration;
+        yPlayerHastighed += sin(dirPlayer) * PlayerAcceleration;
         }
     if (keyIsDown(DOWN_ARROW)) {
-        xPlayer -= cos(dirPlayer) * Playerspeed;
-        yPlayer -= sin(dirPlayer) * Playerspeed;
+        xPlayerHastighed -= cos(dirPlayer) * PlayerAcceleration;
+        yPlayerHastighed -= sin(dirPlayer) * PlayerAcceleration;
         }
     if (keyIsDown(LEFT_ARROW)) {
         dirPlayer -= 0.05;
@@ -35,6 +38,12 @@ function PlayerDraw()
         dirPlayer += 0.05;
         }
 
+    xPlayer += xPlayerHastighed;
+    yPlayer += yPlayerHastighed;
+
+    //friktion
+    xPlayerHastighed *= 0.98;
+    yPlayerHastighed *= 0.98;
     
 
     //tegn spiller
@@ -84,7 +93,7 @@ function PlayerDraw()
     //tjek for kollision med forhindringer
     for (let i = 0; i < forhindringer.length; i++)
     {
-      Kollision(xPlayer, yPlayer, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height, forhindringer[i].angle);
+      Kollision(xPlayer, yPlayer, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height, forhindringer[i].angle, forhindringer[i].angleSpeed);
     }
 
     
