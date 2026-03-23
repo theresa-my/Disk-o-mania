@@ -92,12 +92,31 @@ class RoterendeObjekt
      testY = CircleY;
 
 
-     if (CircleX < FirkantX)           testX = FirkantX;        // left edge
-     else if (CircleX > FirkantX+FirkantW)   testX = FirkantX+FirkantW;     // right edge
+     if (CircleX < FirkantX)           
+      {
+        testX = FirkantX;        // left edge
+      }
+     
+     else if (CircleX > FirkantX+FirkantW)   
+      {
+        testX = FirkantX+FirkantW;     // right edge
+        koldir = "højre";
+      }
 
-     if (CircleY < FirkantY)           testY = FirkantY;        // top edge
-     else if (CircleY > FirkantY+FirkantH)   testY = FirkantY+FirkantH;     // bottom edge
-    
+
+     if (CircleY < FirkantY)   
+      {        
+        testY = FirkantY;       // top edge
+        koldir = "op";    
+      }
+     else if (CircleY > FirkantY+FirkantH)   
+      {
+        testY = FirkantY+FirkantH;     // bottom edge
+        koldir = "nede";
+      }
+
+
+
      distX = CircleX-testX;
      distY = CircleY-testY;
     
@@ -107,5 +126,21 @@ class RoterendeObjekt
      {
        fill(255,0,0);
        text("Game Over", 0, 0);
+
+      if (koldir == "op") 
+      {
+        yPlayerDrejet -= 20;
+      } else if (koldir == "nede")
+      {
+        yPlayerDrejet += 20;
+      } else if (koldir == "højre")
+      {
+        xPlayerDrejet += 20;
+      } else
+      {
+        xPlayerDrejet -= 20;
+      }
+
+
      }
     }
