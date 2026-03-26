@@ -26,6 +26,7 @@ function setupSpil()
     forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed+0.03 ,"firkant"))
   }
   PlayerSetup();
+  ForhindringerTimeingSetup();
 }
 
 
@@ -59,11 +60,9 @@ function drawSpil()
   firkant4.roter(-2.5,10,5,200); 
 
   //tegn forhindringer
-  for (let i = 0; i < forhindringer.length; i++)
-  {
-    forhindringer[i].roter(0, 100, 30, 60);
-  }
+  ForhindringerTimeingDraw()
   
+
   //Spiller
   PlayerDraw()
 
