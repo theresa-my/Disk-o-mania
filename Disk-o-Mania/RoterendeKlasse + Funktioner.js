@@ -94,46 +94,49 @@ class RoterendeObjekt
     //yPlayerDrejet = - (sin(cirkel.angle) * xPlayer - yPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
     let yDrejet = -x * sin(vinkel) + y * cos(vinkel);
 
+    xPlayer = xDrejet * cos(vinkel)-yDrejet * sin(vinkel);
+    yPlayer = xDrejet * sin(vinkel)+yDrejet * cos(vinkel);
+
     return [xDrejet, yDrejet];
   }
     
   //Kollisions funktion mellem cirkel og firkant
     //Taget fra https://www.jeffreythompson.org/collision-detection/circle-rect.php
-    function Kollision(CircleXDrejet, CircleYDrejet, diameter, FirkantXDrejet, FirkantYDrejet, FirkantW, FirkantH, Vinkel,angleSpeed)
+    function Kollision(circleX, circleY, diameter, firkantX, firkantY, firkantW, firkantH)
     {
       
       //Selve kollisionen
-     testX = CircleXDrejet;
-     testY = CircleYDrejet;
+     testX = circleX;
+     testY = circleY;
 
-     if (CircleXDrejet < FirkantXDrejet)           
+     if (circleX < firkantX)           
       {
-        testX = FirkantXDrejet;        // left edge
+        testX = firkantX;        // left edge
         koldir = "venstre";
       }
      
-     else if (CircleXDrejet > FirkantXDrejet + FirkantW)   
+     else if (circleX > firkantX + firkantW)   
       {
-        testX = FirkantXDrejet + FirkantW;     // right edge
+        testX = firkantX + firkantW;     // right edge
         koldir = "højre";
       }
 
 
-     if (CircleYDrejet < FirkantYDrejet)   
+     if (circleY < firkantY)   
       {        
-        testY = FirkantYDrejet;       // top edge
+        testY = firkantY;       // top edge
         koldir = "op";    
       }
-     else if (CircleYDrejet > FirkantYDrejet + FirkantH)   
+     else if (circleY > firkantY + firkantH)   
       {
-        testY = FirkantYDrejet + FirkantH;     // bottom edge
+        testY = firkantY + firkantH;     // bottom edge
         koldir = "nede";
       }
 
 
 
-     distX = CircleXDrejet - testX;
-     distY = CircleYDrejet - testY;
+     distX = circleX - testX;
+     distY = circleY - testY;
     
      distanc = sqrt((distX*distX) + (distY*distY) );
     
@@ -144,33 +147,33 @@ class RoterendeObjekt
 
       if (koldir == "op") 
       {
-        CircleYDrejet = FirkantYDrejet - diameter/2
-        CircleYDrejet -= 1.7;
+        circleY = firkantY - diameter/2
+        circleY -= 1.7;
   
       } else if (koldir == "nede")
       {
-        CircleYDrejet = FirkantYDrejet + FirkantH + diameter/2
-        CircleYDrejet += 1.7;
+        circleY = firkantY + firkantH + diameter/2
+        circleY += 1.7;
       } else if (koldir == "højre")
       {
-        CircleXDrejet = FirkantXDrejet + FirkantW + diameter/2
-        CircleXDrejet += 1.7;
+        circleX = firkantX + firkantW + diameter/2
+        circleX  += 1.7;
       } else if (koldir == "venstre")
       {
-        CircleXDrejet = FirkantXDrejet - diameter/2
-        CircleXDrejet -= 1.7;
+        circleX = firkantX - diameter/2
+        circleX -= 1.7;
       }
 
-      
-
-      xPlayer = CircleXDrejet * cos(Vinkel)-CircleYDrejet * sin(Vinkel);
-      yPlayer = CircleXDrejet * sin(Vinkel)+CircleYDrejet * cos(Vinkel);
-
-
-      xPlayerHastighed = -cos(Vinkel) * angleSpeed * radius;
-      yPlayerHastighed = -sin(Vinkel) * angleSpeed * radius;
-
-
-
+      return true;
      }
+
+     return false;
+    }
+
+    //funktion der "glider" spilleren på forhindrinngerne
+    function SpillersHastighed(vinkel, angleSpeed, radius)
+    {
+      xPlayerHastighed = -cos(vinkel) * angleSpeed * radius;
+      yPlayerHastighed = -sin(vinkel) * angleSpeed * radius;
+
     }
