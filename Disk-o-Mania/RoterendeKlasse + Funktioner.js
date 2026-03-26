@@ -178,7 +178,27 @@ class RoterendeObjekt
     }
 
 
-class ForhindringBolde
+class BoldeForhindring
   {
-    constructor()
+    constructor(BoldeforhindringStartVinkel, BoldeforhindringHastighed)
+    {
+      this.BoldeforhindringStartVinkel = BoldeforhindringStartVinkel;
+      this.BoldeforhindringHastighed = BoldeforhindringHastighed;
+    }
+
+    SkydBoldeforhindring()
+    {
+      this.x = cos(this.BoldeforhindringStartVinkel) * 300;
+      this.y = sin(this.BoldeforhindringStartVinkel) * 300;
+
+      this.x += cos(-this.BoldeforhindringStartVinkel) * this.BoldeforhindringHastighed * random(0.9,1.1);
+      this.y += sin(-this.BoldeforhindringStartVinkel) * this.BoldeforhindringHastighed * random(0.9,1.1);
+
+
+
+      push();
+      fill(255,0,0);
+      circle(this.x,this.y, 30);
+      pop();
+    }
   }
