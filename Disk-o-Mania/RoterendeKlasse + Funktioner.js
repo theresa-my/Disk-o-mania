@@ -177,3 +177,9 @@ class RoterendeObjekt
       yPlayerHastighed = -sin(vinkel) * angleSpeed * radius;
 
     }
+
+
+class ForhindringBolde
+  {
+    constructor()
+  }

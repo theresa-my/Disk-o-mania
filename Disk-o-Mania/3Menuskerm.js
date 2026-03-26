@@ -27,6 +27,7 @@ push();
     textFont("Impact");
     text ("Click to start", 350, 400);
 pop();
-    level = "Iss"
+
+    level = "Is"
 
 }
