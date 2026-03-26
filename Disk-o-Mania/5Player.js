@@ -90,7 +90,7 @@ function PlayerDraw()
     dirPlayer += aktuelAngleSpeed;
     
 
-    //tjek for kollision med forhindringer
+    //tjek for kollision med roterende forhindringer
     for (let i = 0; i < forhindringer.length; i++)
     {
       //Få spillerens drejede korodinater
@@ -107,7 +107,9 @@ function PlayerDraw()
       
     }
 
-    //Kollition med Yderkanten
+    
+
+    //Kollision med Yderkanten
     if (((yPlayer^2+xPlayer^2)^0.5) > 300)
     {
      state = "gameOver";
