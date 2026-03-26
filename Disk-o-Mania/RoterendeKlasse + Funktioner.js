@@ -134,7 +134,6 @@ class RoterendeObjekt
       }
 
 
-
      distX = circleX - testX;
      distY = circleY - testY;
     
