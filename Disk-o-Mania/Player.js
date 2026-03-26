@@ -16,6 +16,7 @@ function PlayerSetup()
     //drejede koordinater for spiller
     xPlayerDrejet = 0 
     yPlayerDrejet = 0
+    //DrejdeKoor = []
     
 }
 
@@ -93,7 +94,8 @@ function PlayerDraw()
     //tjek for kollision med forhindringer
     for (let i = 0; i < forhindringer.length; i++)
     {
-      Kollision(xPlayer, yPlayer, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height, forhindringer[i].angle, forhindringer[i].angleSpeed);
+      DrejdeKoor = DrejCirkel(xPlayer, yPlayer, forhindringer[i].angle);
+      Kollision(DrejdeKoor[0], DrejdeKoor[1], rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height, forhindringer[i].angle, forhindringer[i].angleSpeed);
     }
 
     //Kollition med Yderkanten

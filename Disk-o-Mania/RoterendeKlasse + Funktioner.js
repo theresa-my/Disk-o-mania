@@ -82,19 +82,25 @@ class RoterendeObjekt
 
 
 
-  
-    //Kollisions funktion mellem cirkel og firkant
+  //funktion der drejer spillerens globale koordinater
+  function DrejCirkel(x, y, vinkel)
+  {
+    //Konveter spillerens position til roteret koordinatsystem
+    //Lavet med Maple
+
+    //xPlayerDrejet = (sin(cirkel.angle) * yPlayer + xPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
+    let xDrejet = x * cos(vinkel) + y * sin(vinkel);
+
+    //yPlayerDrejet = - (sin(cirkel.angle) * xPlayer - yPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
+    let yDrejet = -x * sin(vinkel) + y * cos(vinkel);
+
+    return [xDrejet, yDrejet];
+  }
+    
+  //Kollisions funktion mellem cirkel og firkant
     //Taget fra https://www.jeffreythompson.org/collision-detection/circle-rect.php
-    function Kollision(CircleX, CircleY, diameter, FirkantXDrejet, FirkantYDrejet, FirkantW, FirkantH, Vinkel,angleSpeed)
+    function Kollision(CircleXDrejet, CircleYDrejet, diameter, FirkantXDrejet, FirkantYDrejet, FirkantW, FirkantH, Vinkel,angleSpeed)
     {
-
-      //Konveter spillerens position til roteret koordinatsystem
-      //Lavet med Maple
-      //yPlayerDrejet = - (sin(cirkel.angle) * xPlayer - yPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
-      CircleYDrejet = -CircleX * sin(Vinkel) + CircleY * cos(Vinkel)
-
-      //xPlayerDrejet = (sin(cirkel.angle) * yPlayer + xPlayer * cos(cirkel.angle)) / (sin(cirkel.angle)**2 + cos(cirkel.angle)**2)
-      CircleXDrejet = CircleX * cos(Vinkel) + CircleY * sin(Vinkel)
       
       //Selve kollisionen
      testX = CircleXDrejet;
