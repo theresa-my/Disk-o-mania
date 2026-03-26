@@ -28,6 +28,6 @@ push();
     text ("Click to start", 350, 400);
 pop();
 
-    level = "Is"
+    level = "Iss"
 
 }
