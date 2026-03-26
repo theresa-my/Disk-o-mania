@@ -5,10 +5,6 @@ function setup()
     // start the game in the "spil" state so drawSpil() runs immediately
     state = "start";
 
-    // !!!!!!!!!! Husk at overføre til menu senere !!!!!!!!!!
-    level = "Iss"
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
     stateold = 0;
     angleMode(RADIANS);
 }
