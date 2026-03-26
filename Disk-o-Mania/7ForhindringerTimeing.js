@@ -4,7 +4,7 @@ function ForhindringerTimeingSetup()
 
     for (let i = 0; i < 10; i++)
     {
-        i = new BoldeForhindring(0,1)
+        Forhindringerbolde[i] = new BoldeForhindring(1,1,15,0.7)
 
     }
 }

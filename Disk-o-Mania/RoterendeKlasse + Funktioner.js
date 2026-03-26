@@ -180,25 +180,31 @@ class RoterendeObjekt
 
 class BoldeForhindring
   {
-    constructor(BoldeforhindringStartVinkel, BoldeforhindringHastighed)
+    constructor(BoldeforhindringStartVinkel, BoldeforhindringHastighed, diameter,spredning)
     {
       this.BoldeforhindringStartVinkel = BoldeforhindringStartVinkel;
       this.BoldeforhindringHastighed = BoldeforhindringHastighed;
+      this.diameter = diameter;
+      this.spredning = spredning;
+
+      // Initial position
+      this.x = cos(this.BoldeforhindringStartVinkel) * 300;
+      this.y = sin(this.BoldeforhindringStartVinkel) * 300;
+      
+      // Velocity components
+      this.vx = -cos(this.BoldeforhindringStartVinkel) * this.BoldeforhindringHastighed * random(1+this.spredning,1-this.spredning);
+      this.vy = -sin(this.BoldeforhindringStartVinkel) * this.BoldeforhindringHastighed * random(1+this.spredning,1-this.spredning);
     }
 
     SkydBoldeforhindring()
     {
-      this.x = cos(this.BoldeforhindringStartVinkel) * 300;
-      this.y = sin(this.BoldeforhindringStartVinkel) * 300;
-
-      this.x += cos(-this.BoldeforhindringStartVinkel) * this.BoldeforhindringHastighed * random(0.9,1.1);
-      this.y += sin(-this.BoldeforhindringStartVinkel) * this.BoldeforhindringHastighed * random(0.9,1.1);
-
-
+      // Update position by velocity
+      this.x += this.vx;
+      this.y += this.vy;
 
       push();
       fill(255,0,0);
-      circle(this.x,this.y, 30);
+      circle(this.x, this.y, this.diameter);
       pop();
     }
   }
