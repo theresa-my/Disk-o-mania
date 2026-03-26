@@ -5,6 +5,8 @@ function setupStart()
 
 function drawStart()
 {
-state += 1
+    text ("Startskærm", 100, 100);
+    state = "menu"
+
 
 }

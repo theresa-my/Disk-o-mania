@@ -96,7 +96,11 @@ function PlayerDraw()
       Kollision(xPlayer, yPlayer, rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height, forhindringer[i].angle, forhindringer[i].angleSpeed);
     }
 
-    
+    //Kollition med Yderkanten
+    if (((yPlayer^2+xPlayer^2)^0.5) > 300)
+    {
+     state = "gameOver";
+    }
 }
 
 

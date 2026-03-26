@@ -7,8 +7,8 @@ function setupMenu()
 function drawMenu()
 {
 
-state +=1
-
+state = "spil"
+text ("Menu", 100, 100);
 level = "Iss"
 
 }

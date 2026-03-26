@@ -3,7 +3,7 @@ function setup()
     createCanvas(800, 600);
 
     // start the game in the "spil" state so drawSpil() runs immediately
-    state = 2;
+    state = "start";
 
     // !!!!!!!!!! Husk at overføre til menu senere !!!!!!!!!!
     level = "Iss"
@@ -22,32 +22,32 @@ function draw()
 
     // run setup only when the state actually changes (no early return)
     if (state !== stateold) {
-        if (state == 0) {
+        if (state == "start") {
             setupStart();
-        } else if (state == 1) {
+        } else if (state == "menu") {
             setupMenu();
-        } else if (state == 2) {
+        } else if (state == "spil") {
             setupSpil();
-        } else if (state == 3) {
+        } else if (state == "gameOver") {
             setupGameover();
         }
         stateold = state;
     }
 
     //Draw
-    if (state==0)
+    if (state== "start")
     {
         drawStart();
     }
-     else if (state==1)
+     else if (state == "menu")
     {
         drawMenu();
     }
-     else if (state==2)
+     else if (state=="spil")
     {
         drawSpil();
     }
-     else if (state==3)
+     else if (state=="gameOver")
     {
         drawGameover();
     }
