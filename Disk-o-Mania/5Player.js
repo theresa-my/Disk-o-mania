@@ -30,6 +30,10 @@ function PlayerSetup()
 
 function PlayerDraw()
 {
+
+     xPlayer += xPlayerHastighed;
+    yPlayer += yPlayerHastighed;
+    
     //spiller bevægelse med piletaster
     if (keyIsDown(UP_ARROW)) {
         xPlayerHastighed += cos(dirPlayer) * PlayerAcceleration;
@@ -46,8 +50,7 @@ function PlayerDraw()
         dirPlayer += 0.05;
         }
 
-    xPlayer += xPlayerHastighed;
-    yPlayer += yPlayerHastighed;
+   
 
     //friktion
     xPlayerHastighed *= 0.98;
@@ -134,7 +137,14 @@ function PlayerDraw()
     //Tjek for kollision mellem spiller og vægforhindringer
     for (let i = 0; i < vægForhindringer.length; i++)
     {
-        Kollision(xPlayer, yPlayer, rPlayer, vægForhindringer[i].x, vægForhindringer[i].y, vægForhindringer[i].bredde, vægForhindringer[i].højde);
+       //tjek for kollision mellem spiller og vægforhindringer
+        let kollisiontjekk = Kollision(xPlayer, yPlayer, rPlayer, vægForhindringer[i].x, vægForhindringer[i].y, vægForhindringer[i].bredde, vægForhindringer[i].højde);
+    
+        //Spiller "glider" på vægforhindringer
+        if (kollisiontjekk)
+        {
+            SpillerHastighedGlobal(vægForhindringer[i].fart);
+        }
     }
     
     ///////////

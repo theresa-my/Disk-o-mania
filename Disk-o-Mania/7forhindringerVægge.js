@@ -19,6 +19,12 @@ class VægForhindring
         this.bredde = bredde;
         this.højde = højde;
         this.fart = random(1, 3);;
+
+        if (this.tjek == 1)
+            {
+                this.fart = this.fart * -1;
+            }
+        
     }
 
     tegn()
@@ -28,13 +34,20 @@ class VægForhindring
 
     bevæg()
     {
-         if (this.tjek == 0)
-         {
-            this. x += this.fart
-         } else
-         {
-            this.x -= this.fart
-         }
+        this. x += this.fart
+        //  if (this.tjek == 0)
+      //   {
+      //      this. x += this.fart
+      //   } else
+      //   {
+     //       this.x -= this.fart
+      //   }
     }
     
+}
+
+function SpillerHastighedGlobal(hastighedGlobal)
+{
+    xPlayerHastighed = hastighedGlobal;
+    yPlayerHastighed = 0;
 }
