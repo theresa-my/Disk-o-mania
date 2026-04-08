@@ -101,7 +101,7 @@ class RoterendeObjekt
   }
     
   //Kollisions funktion mellem cirkel og firkant
-    //Taget fra https://www.jeffreythompson.org/collision-detection/circle-rect.php
+   //Taget fra https://www.jeffreythompson.org/collision-detection/circle-rect.php
     function Kollision(circleX, circleY, diameter, firkantX, firkantY, firkantW, firkantH)
     {
       
@@ -178,6 +178,26 @@ class RoterendeObjekt
     }
 
 
+
+
+    //funktion mellem to cirkler
+    function KollisionCirkel(circle1X, circle1Y, diameter1, circle2X, circle2Y, diameter2)
+    {
+      distX = circle1X - circle2X;
+      distY = circle1Y - circle2Y;
+    
+      distanc = sqrt((distX*distX) + (distY*distY) );
+    
+      if (distanc <= diameter1/2 + diameter2/2) 
+      {
+       return true;
+      }
+
+      return false;
+    }
+  
+
+
 class BoldeForhindring
   {
     constructor(BoldeforhindringStartVinkel, BoldeforhindringHastighed, diameter,spredning)
@@ -187,11 +207,11 @@ class BoldeForhindring
       this.diameter = diameter;
       this.spredning = spredning;
 
-      // Initial position
+      // Initiel position
       this.x = cos(this.BoldeforhindringStartVinkel) * 300;
       this.y = sin(this.BoldeforhindringStartVinkel) * 300;
       
-      // Velocity components
+      // Fart komponenter med tilfældig spredning
       this.vx = -cos(this.BoldeforhindringStartVinkel) * this.BoldeforhindringHastighed * random(1+this.spredning,1-this.spredning);
       this.vy = -sin(this.BoldeforhindringStartVinkel) * this.BoldeforhindringHastighed * random(1+this.spredning,1-this.spredning);
     }
@@ -202,9 +222,24 @@ class BoldeForhindring
       this.x += this.vx;
       this.y += this.vy;
 
-      push();
-      fill(255,0,0);
-      circle(this.x, this.y, this.diameter);
-      pop();
+
+
+
+      // Check for collision with player
+      if (KollisionCirkel(this.x, this.y, this.diameter, xPlayer, yPlayer, 20))
+      {// Skub spilleren i bevægelsesretningen
+        xPlayerHastighed += this.vx ; 
+        yPlayerHastighed += this.vy ;
+        Forhindringerbolde.splice(Forhindringerbolde.indexOf(this), 1); // Fjern bolden ved kollision
+      }
+      else
+      {
+        // Draw the ball if no collision
+        push();
+        fill(255,0,0);
+        circle(this.x, this.y, this.diameter);
+        pop();
+      }
     }
+
   }
