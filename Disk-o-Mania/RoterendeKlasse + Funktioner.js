@@ -163,7 +163,7 @@ class RoterendeObjekt
         circleX -= 1.7;
       }
 
-      return true;
+      return { tjek: true, x: circleX, y: circleY };
      }
 
      return false;

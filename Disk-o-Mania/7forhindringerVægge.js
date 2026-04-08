@@ -35,13 +35,6 @@ class VægForhindring
     bevæg()
     {
         this. x += this.fart
-        //  if (this.tjek == 0)
-      //   {
-      //      this. x += this.fart
-      //   } else
-      //   {
-     //       this.x -= this.fart
-      //   }
     }
     
 }

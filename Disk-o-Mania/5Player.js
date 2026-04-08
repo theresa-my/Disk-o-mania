@@ -33,7 +33,7 @@ function PlayerDraw()
 
      xPlayer += xPlayerHastighed;
     yPlayer += yPlayerHastighed;
-    
+
     //spiller bevægelse med piletaster
     if (keyIsDown(UP_ARROW)) {
         xPlayerHastighed += cos(dirPlayer) * PlayerAcceleration;
@@ -111,10 +111,10 @@ function PlayerDraw()
       let kollisionstjek = Kollision(drejdeKoor[0], drejdeKoor[1], rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height);
       
       //Spiller "glider"på forhindringer
-      if (kollisionstjek)
+      if (kollisionstjek.tjek)
       {
         SpillersHastighed( forhindringer[i].angle, forhindringer[i].angleSpeed, radius);
-      }
+    }
       
     }
 
@@ -138,12 +138,14 @@ function PlayerDraw()
     for (let i = 0; i < vægForhindringer.length; i++)
     {
        //tjek for kollision mellem spiller og vægforhindringer
-        let kollisiontjekk = Kollision(xPlayer, yPlayer, rPlayer, vægForhindringer[i].x, vægForhindringer[i].y, vægForhindringer[i].bredde, vægForhindringer[i].højde);
+        let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, vægForhindringer[i].x, vægForhindringer[i].y, vægForhindringer[i].bredde, vægForhindringer[i].højde);
     
         //Spiller "glider" på vægforhindringer
-        if (kollisiontjekk)
+        if (kollisiontjek.tjek)
         {
             SpillerHastighedGlobal(vægForhindringer[i].fart);
+            xPlayer = kollisiontjek.x;
+            yPlayer = kollisiontjek.y;
         }
     }
     
