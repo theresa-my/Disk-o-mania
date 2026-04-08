@@ -1,7 +1,7 @@
 function ForhindringerTimeingSetup()
 {
     Forhindringerbolde = []
-    BoldeforhindringStartV = Random(0,2*PI);
+    BoldeforhindringStartV = random(0,2*PI);
     for (let i = 0; i < 10; i++)
     {
         Forhindringerbolde[i] = new BoldeForhindring(BoldeforhindringStartV,2.5,15,0.7)
