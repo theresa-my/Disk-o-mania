@@ -197,10 +197,12 @@ class RoterendeObjekt
     }
 
   //knap til at skifte mellem forhindringstyper
-  function knap(forhindring, forhindringTjek,knapX, knapY, knapW, knapH)
+  let knapKlikket = false; // Global flag to prevent multiple triggers
+
+  function knap(forhindring, forhindringTjek, knapX, knapY, knapW, knapH)
   {
     push();
-    if (forhindringTjek)
+    if (forhindringTjek == true)
     {
       fill(0,255,0);
     } else
@@ -211,20 +213,27 @@ class RoterendeObjekt
     rect(knapX, knapY, knapW, knapH);
     fill(255);
     textSize(20);
-    text(forhindring, 360, 480);
-    if (mouseIsPressed && mouseX > knapX && mouseX < knapX + knapW && mouseY > knapY && mouseY < knapY + knapH)
-    {
-      if (forhindringTjek == false)
-      {
-        return forhindringTjek = true;
-      }
-      else 
-      {
-        return forhindringTjek = false;
-      }
-    }
+    text(forhindring, knapX + 10, knapY + 30); // Position text inside button
     pop();
+
+    // Check for click (only once per press)
+    if (mouseIsPressed && !knapKlikket && mouseX > knapX && mouseX < knapX + knapW && mouseY > knapY && mouseY < knapY + knapH)
+    {
+      knapKlikket = true;
+      return !forhindringTjek; // Return toggled value
+    }
+    
+    // Reset flag when mouse is released
+    if (!mouseIsPressed)
+    {
+      knapKlikket = false;
+    }
+
+    return forhindringTjek; // Return unchanged if no click
   }
+
+
+
 
 class BoldeForhindring
   {
