@@ -11,13 +11,13 @@ function ForhindringerTimeingSetup()
 
 function ForhindringerTimeingDraw()
 {
-//Firkant forhindringer
+  //Firkant forhindringer
   for (let i = 0; i < forhindringer.length; i++)
   {
     forhindringer[i].roter(0, 100, 30, 60);
   }
 
-//Bolde forhindringer
+  //Bolde forhindringer
   for (let i = 0; i < Forhindringerbolde.length; i++)
   {
     Forhindringerbolde[i].SkydBoldeforhindring();
