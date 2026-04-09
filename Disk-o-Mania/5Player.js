@@ -111,7 +111,10 @@ function PlayerDraw()
     }
 
     //Kollision med Yderkanten
-    if (((yPlayer^2+xPlayer^2)^0.5) > 300)
+    text (xPlayer, 10, 20);
+    text (yPlayer, 10, 40);
+
+    if ((sqrt(yPlayer*yPlayer+xPlayer*xPlayer)) > 300)
     {
      state = "gameOver";
     }
