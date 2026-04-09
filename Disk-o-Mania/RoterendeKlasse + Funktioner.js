@@ -195,6 +195,29 @@ class RoterendeObjekt
 
       return false;
     }
+
+  //knap til at skifte mellem forhindringstyper
+  function knap(forhindring)
+  {
+    push();
+    fill(255,0,0);
+    rect(350, 450, 100, 50);
+    fill(255);
+    textSize(20);
+    text(forhindring, 360, 480);
+    if (mouseIsPressed && mouseX > 350 && mouseX < 450 && mouseY > 450 && mouseY < 500)
+    {
+      if (forhindring == "is")
+      {
+        level = "Iss";
+      }
+      else 
+      {
+        level = "is"
+      }
+    }
+    pop();
+  }
   
 
 
