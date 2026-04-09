@@ -23,24 +23,28 @@ function PlayerSetup()
 function PlayerDraw()
 {
 
-     xPlayer += xPlayerHastighed;
+    xPlayer += xPlayerHastighed;
     yPlayer += yPlayerHastighed;
 
     //spiller bevægelse med piletaster
-    if (keyIsDown(UP_ARROW)) {
-        xPlayerHastighed += cos(dirPlayer) * PlayerAcceleration;
-        yPlayerHastighed += sin(dirPlayer) * PlayerAcceleration;
-        }
-    if (keyIsDown(DOWN_ARROW)) {
-        xPlayerHastighed -= cos(dirPlayer) * PlayerAcceleration;
-        yPlayerHastighed -= sin(dirPlayer) * PlayerAcceleration;
-        }
-    if (keyIsDown(LEFT_ARROW)) {
-        dirPlayer -= 0.05;
-        }
-    if (keyIsDown(RIGHT_ARROW)) {
-        dirPlayer += 0.05;
-        }
+    if (keyIsDown(UP_ARROW)) 
+    {
+      xPlayerHastighed += cos(dirPlayer) * PlayerAcceleration;
+      yPlayerHastighed += sin(dirPlayer) * PlayerAcceleration;
+    }
+    if (keyIsDown(DOWN_ARROW)) 
+    {
+      xPlayerHastighed -= cos(dirPlayer) * PlayerAcceleration;
+      yPlayerHastighed -= sin(dirPlayer) * PlayerAcceleration;
+    }
+    if (keyIsDown(LEFT_ARROW)) 
+    {
+      dirPlayer -= 0.05;
+    }
+    if (keyIsDown(RIGHT_ARROW)) 
+    {
+      dirPlayer += 0.05;
+    }
 
    
 
@@ -111,8 +115,6 @@ function PlayerDraw()
     }
 
     //Kollision med Yderkanten
-    text (xPlayer, 10, 20);
-    text (yPlayer, 10, 40);
 
     if ((sqrt(yPlayer*yPlayer+xPlayer*xPlayer)) > 300)
     {
