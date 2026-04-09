@@ -7,7 +7,7 @@ function setupSpil()
   //Variabler til roterende objekter
   angle = 0
   count = 0;
-  aktuelAngleSpeed = 0.01;
+  aktuelAngleSpeed = 0.0005;
   angleMode(radians);
   acc = 0;
 
@@ -23,7 +23,7 @@ function setupSpil()
 
   for (let i = 0; i < 1; i++)
   {
-    forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed+0.03 ,"firkant"))
+    forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed+0.003 ,"firkant"))
   }
   PlayerSetup();
   ForhindringerTimeingSetup();

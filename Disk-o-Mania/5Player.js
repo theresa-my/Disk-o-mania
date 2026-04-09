@@ -22,7 +22,7 @@ function PlayerSetup()
     
     for (let i = 0; i < 5; i++)
     {
-        vægForhindringer.push(new VægForhindring(60, 30));
+        vægForhindringer.push(new VægForhindring(30, 60));
     }
     ////////
 }
