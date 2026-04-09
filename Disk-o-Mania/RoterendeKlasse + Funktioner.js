@@ -207,6 +207,7 @@ class RoterendeObjekt
     {
       fill(255,0,0);
     }
+    
     rect(knapX, knapY, knapW, knapH);
     fill(255);
     textSize(20);
