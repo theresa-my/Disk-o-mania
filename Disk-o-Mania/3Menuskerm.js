@@ -15,7 +15,7 @@ function drawMenu()
 {
     transitiontimer++;
     fill(222)
-    text (forhindringerTjek, 10, 20);
+
 
 if (keyIsPressed && transitiontimer > 30)
 {
@@ -37,7 +37,7 @@ push();
     text ("Click to start", 350, 400);
 pop();
 
-knap("Firkantforhindring",FirkantforhindringTjek,350, 450, 100, 50);
+FirkantforhindringTjek = knap("Firkantforhindring", FirkantforhindringTjek, 350, 450, 100, 50);
 
   
 
