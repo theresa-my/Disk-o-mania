@@ -1,12 +1,21 @@
 function setupMenu()
 {
-transitiontimer = 0;
+  transitiontimer = 0;
+
+  forhindringerTjek = true;   
+  FirkantforhindringTjek = true;
+  VæggeforhindringTjek = true;
+  BoldeforhindringTjek = true;
+  HulforhindringTjek = true;
+  
 
 }
 
 function drawMenu()
 {
     transitiontimer++;
+    fill(222)
+    text (forhindringerTjek, 10, 20);
 
 if (keyIsPressed && transitiontimer > 30)
 {
@@ -27,9 +36,13 @@ push();
     textFont("Impact");
     text ("Click to start", 350, 400);
 pop();
-knap("is")
+
+knap("Firkantforhindring",FirkantforhindringTjek,350, 450, 100, 50);
 
   
+
+
+
         level = "Iss"
     
 }

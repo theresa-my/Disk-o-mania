@@ -197,29 +197,33 @@ class RoterendeObjekt
     }
 
   //knap til at skifte mellem forhindringstyper
-  function knap(forhindring)
+  function knap(forhindring, forhindringTjek,knapX, knapY, knapW, knapH)
   {
     push();
-    fill(255,0,0);
-    rect(350, 450, 100, 50);
+    if (forhindringTjek)
+    {
+      fill(0,255,0);
+    } else
+    {
+      fill(255,0,0);
+    }
+    rect(knapX, knapY, knapW, knapH);
     fill(255);
     textSize(20);
     text(forhindring, 360, 480);
-    if (mouseIsPressed && mouseX > 350 && mouseX < 450 && mouseY > 450 && mouseY < 500)
+    if (mouseIsPressed && mouseX > knapX && mouseX < knapX + knapW && mouseY > knapY && mouseY < knapY + knapH)
     {
-      if (forhindring == "is")
+      if (forhindringTjek == false)
       {
-        level = "Iss";
+        return forhindringTjek = true;
       }
       else 
       {
-        level = "is"
+        return forhindringTjek = false;
       }
     }
     pop();
   }
-  
-
 
 class BoldeForhindring
   {

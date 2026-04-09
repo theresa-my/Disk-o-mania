@@ -1,5 +1,8 @@
 function ForhindringerTimeingSetup()
 {
+
+  
+  
     Forhindringerbolde = []
     BoldeforhindringStartV = random(0,2*PI);
     for (let i = 0; i < 10; i++)
@@ -23,13 +26,22 @@ function ForhindringerTimeingSetup()
     }
 }
 
+
+
+
+
+
 function ForhindringerTimeingDraw()
 {
-  //Firkant forhindringer
-  for (let i = 0; i < forhindringer.length; i++)
+  if (FirkantforhindringTjek)
   {
-    forhindringer[i].roter(0, 100, 30, 60);
+    //Firkant forhindringer
+    for (let i = 0; i < forhindringer.length; i++)
+    {
+      forhindringer[i].roter(0, 100, 30, 60);
+    }
   }
+
 
   //Bolde forhindringer
   for (let i = 0; i < Forhindringerbolde.length; i++)
