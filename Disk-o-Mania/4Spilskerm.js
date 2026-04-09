@@ -11,9 +11,7 @@ function setupSpil()
   angleMode(radians);
   acc = 0;
 
-  //forhindringer
-  forhindringer = [];
-  
+ 
   //nye roterende objekter
   cirkel = new RoterendeObjekt(0,aktuelAngleSpeed ,"cirkel")
   firkant1 = new RoterendeObjekt(0.0*PI,aktuelAngleSpeed ,"firkant")
@@ -21,10 +19,7 @@ function setupSpil()
   firkant3 = new RoterendeObjekt(1.0*PI,aktuelAngleSpeed ,"firkant")
   firkant4 = new RoterendeObjekt(1.5*PI,aktuelAngleSpeed ,"firkant")
 
-  for (let i = 0; i < 1; i++)
-  {
-    forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed+0.003 ,"firkant"))
-  }
+
   PlayerSetup();
   ForhindringerTimeingSetup();
 }

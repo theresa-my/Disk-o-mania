@@ -17,14 +17,6 @@ function PlayerSetup()
     xPlayerDrejet = 0 
     yPlayerDrejet = 0
     
-    ///////
-    vægForhindringer = [];
-    
-    for (let i = 0; i < 5; i++)
-    {
-        vægForhindringer.push(new VægForhindring(30, 60));
-    }
-    ////////
 }
 
 
@@ -125,31 +117,6 @@ function PlayerDraw()
     }
 
 
-    ///////////
-    //print VægForhinringer
-    
-    for (let i = 0; i < vægForhindringer.length; i++)
-    {
-        vægForhindringer[i].tegn();
-        vægForhindringer[i].bevæg();
-    }
-   
-    //Tjek for kollision mellem spiller og vægforhindringer
-    for (let i = 0; i < vægForhindringer.length; i++)
-    {
-       //tjek for kollision mellem spiller og vægforhindringer
-        let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, vægForhindringer[i].x, vægForhindringer[i].y, vægForhindringer[i].bredde, vægForhindringer[i].højde);
-    
-        //Spiller "glider" på vægforhindringer
-        if (kollisiontjek.tjek)
-        {
-            SpillerHastighedGlobal(vægForhindringer[i].fart);
-            xPlayer = kollisiontjek.x;
-            yPlayer = kollisiontjek.y;
-        }
-    }
-    
-    ///////////
 }
 
 
