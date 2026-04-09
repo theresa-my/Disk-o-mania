@@ -7,7 +7,7 @@ function setupSpil()
   //Variabler til roterende objekter
   angle = 0
   count = 0;
-  aktuelAngleSpeed = 0.0005;
+  aktuelAngleSpeed = 0.003;
   angleMode(radians);
   acc = 0;
 
@@ -36,7 +36,7 @@ function drawSpil()
   
   //Lav farve på is level + tegn cirkle
   push();
-  if (level == "Is")
+  if (IsTjek)
   {
     fill( 144, 195, 232);
   } else 

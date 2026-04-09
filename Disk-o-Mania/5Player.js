@@ -68,7 +68,7 @@ function PlayerDraw()
   
   
     //Is eller ej
-    if (level == "Is")
+    if (IsTjek)
     {
       acc = vinkelHastighed ** 2 * radius;
 

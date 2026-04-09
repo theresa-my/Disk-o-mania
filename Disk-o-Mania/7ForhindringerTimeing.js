@@ -44,27 +44,33 @@ function ForhindringerTimeingDraw()
 
 
   //Bolde forhindringer
-  for (let i = 0; i < Forhindringerbolde.length; i++)
+  if (BoldeforhindringTjek)
   {
-    Forhindringerbolde[i].SkydBoldeforhindring();
+    for (let i = 0; i < Forhindringerbolde.length; i++)
+    {
+      Forhindringerbolde[i].SkydBoldeforhindring();
+    }
   }
 
 
 //print VægForhinringer
-  for (let i = 0; i < vægForhindringer.length; i++)
+  if (VæggeforhindringTjek)
   {
-    vægForhindringer[i].tegn();
-    vægForhindringer[i].bevæg();
-
-    //tjek for kollision mellem spiller og vægforhindringer
-    let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, vægForhindringer[i].x, vægForhindringer[i].y, vægForhindringer[i].bredde, vægForhindringer[i].højde);
-    
-    //Spiller "glider" på vægforhindringer
-    if (kollisiontjek.tjek)
+    for (let i = 0; i < vægForhindringer.length; i++)
     {
-     SpillerHastighedGlobal(vægForhindringer[i].fart);
-     xPlayer = kollisiontjek.x;
-     yPlayer = kollisiontjek.y;
+      vægForhindringer[i].tegn();
+      vægForhindringer[i].bevæg();
+
+      //tjek for kollision mellem spiller og vægforhindringer
+      let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, vægForhindringer[i].x, vægForhindringer[i].y, vægForhindringer[i].bredde, vægForhindringer[i].højde);
+    
+      //Spiller "glider" på vægforhindringer
+      if (kollisiontjek.tjek)
+      {
+      SpillerHastighedGlobal(vægForhindringer[i].fart);
+      xPlayer = kollisiontjek.x;
+      yPlayer = kollisiontjek.y;
+      }
     }
- }
+  }
 }

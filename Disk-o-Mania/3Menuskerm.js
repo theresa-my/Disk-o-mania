@@ -7,6 +7,7 @@ function setupMenu()
   VæggeforhindringTjek = true;
   BoldeforhindringTjek = true;
   HulforhindringTjek = true;
+  IsTjek = true;
   
 
 }
@@ -37,12 +38,12 @@ push();
     text ("Click to start", 350, 400);
 pop();
 
-FirkantforhindringTjek = knap("Firkantforhindring", FirkantforhindringTjek, 350, 450, 100, 50);
+FirkantforhindringTjek = knap("Firkantforhindring", FirkantforhindringTjek, 150, 450, 200, 50);
+BoldeforhindringTjek = knap("Boldeforhindring", BoldeforhindringTjek, 150, 400, 200, 50);
+VæggeforhindringTjek = knap("Væggeforhindring", VæggeforhindringTjek, 350, 450, 200, 50);
+HulforhindringTjek = knap("Hulforhindring", HulforhindringTjek, 350, 400, 200, 50);
+IsTjek = knap("Is", IsTjek, 550, 400, 200, 50);
 
-  
-
-
-
-        level = "Iss"
+level = "Iss"
     
 }
