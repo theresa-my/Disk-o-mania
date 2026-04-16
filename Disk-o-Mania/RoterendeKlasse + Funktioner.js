@@ -283,13 +283,18 @@ class BoldeForhindring
 
 
 
-///Vg forhindringer
+///Væg forhindringer
   class VægForhindring
 {
-    constructor(bredde, højde)
+    constructor(bredde, højde, VandretEllerLodret)
     {
-        //random spawn på enten venstre eller højre side
+        
+        this.retning = VandretEllerLodret;
+  
         this.tjek = floor(random(2))
+          //random spawn vandret
+          if (this.retning == "Vandret")
+            { 
             if (this.tjek == 0)
             {
                 this.x = random(-550, -450);
@@ -297,6 +302,16 @@ class BoldeForhindring
             {
                 this.x = random(450, 550);
             }
+          } else //random spawn Lodret
+          {
+            if (this.tjek == 0)
+            {
+                this.y = random(-450, -350);
+            } else
+            {
+                this.y = random(350, 450);
+            }
+          }
 
         //random spawn på y-aksen
         this.y = random(-250, 250);
@@ -328,4 +343,46 @@ function SpillerHastighedGlobal(hastighedGlobal)
 {
     xPlayerHastighed = hastighedGlobal;
     yPlayerHastighed = 0;
+}
+
+
+class HulForhindring
+{
+  constructor()
+  {
+    this.x = random(-200, 200);
+    this.y = random(-200, 200);
+    this.diameter = random(20, 50);
+    this.creationFrame = frameCount; // Gem hvornår objektet blev skabt
+
+  }
+
+  tegn()
+  {
+    // Beregn hvor mange frames der er gået siden oprettelse
+    let elapsedFrames = frameCount - this.creationFrame;
+    
+    // 4 sekunder = 240 frames (ved 60 FPS)
+    let blinkDuration = 240;
+
+    if (elapsedFrames < blinkDuration)
+      {
+        push();
+        fill(0)
+        //Blinkende effekt for hul forhindringer (blinker hvert 30 frame)
+        if ((elapsedFrames / 30) % 2 < 1) 
+        {
+           circle(this.x, this.y, this.diameter);
+        } 
+        pop();
+      } else
+      {
+        push();
+        fill(0)
+        this.xReel = this.x
+        this.yReel = this.y
+        circle(this.xReel, this.yReel, this.diameter);
+        pop();
+      }
+  }
 }
