@@ -282,7 +282,31 @@ class BoldeForhindring
   }
 
 
+class SolidVæg
+{
+  constructor(x, y, bredde, højde, fart, retningY, retningX)
+  {
+    this.x = x
+    this.y = y;
+    this.bredde = bredde;
+    this.højde = højde;
+    this.fart = fart;
+    this.retningY = retningY;
+    this.retningX = retningX;
+  }
 
+  tegn()
+  {
+    rect(this.x, this.y, this.bredde, this.højde);
+  }
+
+  bevæg()
+    {
+      this. x += this.fart * this.retningX
+      this.y += this.fart * this.retningY
+    }
+
+}
 ///Væg forhindringer
   class VægForhindring
 {
@@ -318,8 +342,6 @@ class BoldeForhindring
                 this.y = random(350, 450);
             }
           }
-
-        
         
 
         this.bredde = bredde;
