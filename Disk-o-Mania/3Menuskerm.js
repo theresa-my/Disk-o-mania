@@ -7,6 +7,7 @@ function setupMenu()
   VæggeforhindringTjek = true;
   BoldeforhindringTjek = true;
   HulforhindringTjek = true;
+  SolidVæggeforhindringTjek = true;
   IsTjek = true;
   
 
@@ -43,7 +44,8 @@ BoldeforhindringTjek = knap("Boldeforhindring", BoldeforhindringTjek, 150, 400, 
 VæggeforhindringTjek = knap("Væggeforhindring", VæggeforhindringTjek, 350, 450, 200, 50);
 HulforhindringTjek = knap("Hulforhindring", HulforhindringTjek, 350, 400, 200, 50);
 IsTjek = knap("Is", IsTjek, 550, 400, 200, 50);
+SolidVæggeforhindringTjek = knap("SolidVæggeforhindring", SolidVæggeforhindringTjek, 550, 450, 200, 50);
 
-level = "Iss"
+
     
 }
