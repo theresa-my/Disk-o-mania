@@ -1,6 +1,7 @@
 function ForhindringerTimeingSetup()
 {
-
+  GameTime = 0;
+  last30SecondMark = 0;
   
   
     Forhindringerbolde = []
@@ -33,6 +34,30 @@ function ForhindringerTimeingSetup()
 
 function ForhindringerTimeingDraw()
 {
+  GameTime = GameTime + 1;
+ 
+  
+  // Convert frames to seconds (assuming 60 FPS)
+  let GameTimeseconds = Math.floor(GameTime / 60);
+   text(GameTimeseconds, 300, -250);
+
+
+  // Check for 30-second milestones
+  let current30Mark = Math.floor(GameTimeseconds / 30) * 30;
+  if (current30Mark > last30SecondMark && current30Mark > 0) {
+    // Trigger 30-second event
+    trigger30SecondEvent();
+    last30SecondMark = current30Mark;
+  }
+  
+
+
+
+
+
+
+
+
   if (FirkantforhindringTjek)
   {
     //Firkant forhindringer
@@ -43,14 +68,6 @@ function ForhindringerTimeingDraw()
   }
 
 
-  //Bolde forhindringer
-  if (BoldeforhindringTjek)
-  {
-    for (let i = 0; i < Forhindringerbolde.length; i++)
-    {
-      Forhindringerbolde[i].SkydBoldeforhindring();
-    }
-  }
 
 
 //print VægForhinringer
@@ -71,6 +88,20 @@ function ForhindringerTimeingDraw()
       xPlayer = kollisiontjek.x;
       yPlayer = kollisiontjek.y;
       }
+    }
+  }
+}
+
+
+
+function trigger30SecondEvent() 
+{
+  //Bolde forhindringer
+  if (BoldeforhindringTjek)
+  {
+    for (let i = 0; i < Forhindringerbolde.length; i++)
+    {
+      Forhindringerbolde[i].SkydBoldeforhindring();
     }
   }
 }
