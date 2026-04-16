@@ -2,7 +2,9 @@
 
 function setup() 
 {
-    createCanvas(800, 600);
+    canvaHøjde = 600;
+    canvaBredde = 800;
+    createCanvas(canvaBredde, canvaHøjde);
 
     // start the game in the "spil" state so drawSpil() runs immediately
     state = "start";

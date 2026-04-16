@@ -9,15 +9,17 @@ function drawStart()
         background(0);
         fill(255,0,0);
         textSize(110);
+        textAlign(CENTER, CENTER);
         textFont("Impact");
-        text ("Disk-o-Mania", 110, 230);
+        text ("Disk-o-Mania", canvaBredde/2, canvaHøjde/2 -50);
     pop();
 
     push();
         fill(255,0,0);
         textSize(30);
         textFont("Impact");
-        text ("Click to start", 350, 400);
+        textAlign(CENTER, CENTER);
+        text ("Click to start", canvaBredde/2, canvaHøjde/2 + 100);
     pop();
 
 
