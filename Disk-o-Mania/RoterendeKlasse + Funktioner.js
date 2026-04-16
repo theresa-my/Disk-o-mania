@@ -286,7 +286,7 @@ class BoldeForhindring
 ///Væg forhindringer
   class VægForhindring
 {
-    constructor(bredde, højde, VandretEllerLodret)
+    constructor(bredde, højde, VandretEllerLodret, fart)
     {
         
         this.retning = VandretEllerLodret;
@@ -294,7 +294,10 @@ class BoldeForhindring
         this.tjek = floor(random(2))
           //random spawn vandret
           if (this.retning == "Vandret")
-            { 
+         { 
+            //random spawn på y-aksen
+            this.y = random(-250, 250);
+
             if (this.tjek == 0)
             {
                 this.x = random(-550, -450);
@@ -304,6 +307,9 @@ class BoldeForhindring
             }
           } else //random spawn Lodret
           {
+            //random spawn på x-aksen
+            this.x = random(-250, 250);
+
             if (this.tjek == 0)
             {
                 this.y = random(-450, -350);
@@ -313,17 +319,17 @@ class BoldeForhindring
             }
           }
 
-        //random spawn på y-aksen
-        this.y = random(-250, 250);
+        
+        
 
         this.bredde = bredde;
         this.højde = højde;
-        this.fart = random(1, 3);;
-
+        this.fart = fart;
+       
         if (this.tjek == 1)
-            {
-                this.fart = this.fart * -1;
-            }
+        {
+          this.fart = this.fart * -1;
+        }
         
     }
 
@@ -334,10 +340,19 @@ class BoldeForhindring
 
     bevæg()
     {
-        this. x += this.fart
+        if (this.retning == "Vandret")
+        {
+           this. x += this.fart
+        } else
+        {
+           this.y += this.fart
+        }
+       
     }
     
 }
+
+
 
 function SpillerHastighedGlobal(hastighedGlobal)
 {
