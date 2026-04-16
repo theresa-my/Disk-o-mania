@@ -16,6 +16,14 @@ function PlayerSetup()
     //drejede koordinater for spiller
     xPlayerDrejet = 0 
     yPlayerDrejet = 0
+
+    /////////////////////////////////////////////
+    forhindringerHUL = [];
+    for (let i = 0; i < 1; i++)
+    {
+      forhindringerHUL.push(new HulForhindring)
+    }
+    ///////////////////////////////////////////////
     
 }
 
@@ -122,6 +130,12 @@ function PlayerDraw()
     }
 
 
+    //////////////////////////////////////////////////////
+    for (let i = 0; i < forhindringerHUL.length; i++)
+    {
+      forhindringerHUL[i].tegn();
+    }
+    ///////////////////////////////////////////////////
 }
 
 

@@ -284,7 +284,7 @@ class BoldeForhindring
 
 class SolidVæg
 {
-  constructor(x, y, bredde, højde, fart, retningY, retningX)
+  constructor(x, y, bredde, højde, fart, retningY, retningX, delay)
   {
     this.x = x
     this.y = y;
@@ -310,14 +310,27 @@ class SolidVæg
 ///Væg forhindringer
   class VægForhindring
 {
-    constructor(bredde, højde, VandretEllerLodret, fart)
+    constructor(bredde, højde, fart, vandretEllerLodret)
     {
-        
-        this.retning = VandretEllerLodret;
-  
+        this.bredde = bredde;
+        this.højde = højde;
+        this.fart = fart;
+        this.retning = vandretEllerLodret;
         this.tjek = floor(random(2))
+       
+        if (this.tjek == 1)
+        {
+          this.retningX = -1;
+          this.retningY = -1;
+        }
+
+        this.VandretEllerLodret();
+    }
+
+    VandretEllerLodret()
+    {
           //random spawn vandret
-          if (this.retning == "Vandret")
+          if (this.retning == 1)
          { 
             //random spawn på y-aksen
             this.y = random(-250, 250);
@@ -328,7 +341,7 @@ class SolidVæg
             } else
             {
                 this.x = random(450, 550);
-            }
+            }         
           } else //random spawn Lodret
           {
             //random spawn på x-aksen
@@ -342,19 +355,8 @@ class SolidVæg
                 this.y = random(350, 450);
             }
           }
-        
-
-        this.bredde = bredde;
-        this.højde = højde;
-        this.fart = fart;
-       
-        if (this.tjek == 1)
-        {
-          this.fart = this.fart * -1;
-        }
-        
     }
-
+    
     tegn()
     {
         rect(this.x, this.y, this.bredde, this.højde);
@@ -362,16 +364,9 @@ class SolidVæg
 
     bevæg()
     {
-        if (this.retning == "Vandret")
-        {
-           this. x += this.fart
-        } else
-        {
-           this.y += this.fart
-        }
-       
+        this.x += this.fart * this.retningX;
+        this.y += this.fart * this.retningY;
     }
-    
 }
 
 
