@@ -2,6 +2,7 @@ function ForhindringerTimeingSetup()
 {
   GameTime = 0;
   last30SecondMark = 0;
+  last60SecondMark = 0;
   
   
     Forhindringerbolde = []
@@ -14,10 +15,7 @@ function ForhindringerTimeingSetup()
 
 
     vægForhindringer = [];
-    for (let i = 0; i < 5; i++)
-    {
-      vægForhindringer.push(new VægForhindring(30, 60));
-    }
+
 
   
     forhindringer = [];
@@ -50,6 +48,14 @@ function ForhindringerTimeingDraw()
     last30SecondMark = current30Mark;
   }
   
+
+  // Check for 60-second milestones
+  let current60Mark = Math.floor(GameTimeseconds / 60) * 60;
+  if (current60Mark > last60SecondMark && current60Mark > 0) {
+    // Trigger 60-second event
+    trigger60SecondEvent();
+    last60SecondMark = current60Mark;
+  }
 
 
 
@@ -104,4 +110,26 @@ function trigger30SecondEvent()
       Forhindringerbolde[i].SkydBoldeforhindring();
     }
   }
+
+
+
+  for (let i = 0; i < 5; i++)
+  {
+    vægForhindringer.push(new VægForhindring(30, 60));
+  }
+
+
+
+  
 }
+
+
+function trigger60SecondEvent()
+{
+  if(SolidVæggeforhindringTjek)
+  {
+    vægForhindringer.push(new SolidVægForhindring(constructor(x, y, bredde, højde, fart, retningY, retningX)));
+ 
+    vægForhindringer.push(new SolidVægForhindring(constructor(x+1500, y, bredde, højde, fart, retningY, retningX)));
+  } //gør x eller y større for at skabe et delay mellem de to solid væg forhindringer
+}   

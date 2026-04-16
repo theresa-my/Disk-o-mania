@@ -213,23 +213,22 @@ class RoterendeObjekt
     rect(knapX, knapY, knapW, knapH);
     fill(255);
     textSize(20);
-    text(forhindring, knapX + 10, knapY + 30); // Position text inside button
+    text(forhindring, knapX + 10, knapY + 30); 
     pop();
 
-    // Check for click (only once per press)
+    
     if (mouseIsPressed && !knapKlikket && mouseX > knapX && mouseX < knapX + knapW && mouseY > knapY && mouseY < knapY + knapH)
     {
       knapKlikket = true;
-      return !forhindringTjek; // Return toggled value
+      return !forhindringTjek; 
     }
     
-    // Reset flag when mouse is released
     if (!mouseIsPressed)
     {
       knapKlikket = false;
     }
 
-    return forhindringTjek; // Return unchanged if no click
+    return forhindringTjek; 
   }
 
 
