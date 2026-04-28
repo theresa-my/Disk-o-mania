@@ -81,10 +81,9 @@ class RoterendeObjekt
   }
 
 
-
-  //funktion der drejer spillerens globale koordinater
-  function DrejCirkel(x, y, vinkel)
-  {
+//funktion der drejer spillerens globale koordinater
+function DrejCirkel(x, y, vinkel)
+{
     //Konveter spillerens position til roteret koordinatsystem
     //Lavet med Maple
 
@@ -98,12 +97,12 @@ class RoterendeObjekt
     yPlayer = xDrejet * sin(vinkel)+yDrejet * cos(vinkel);
 
     return [xDrejet, yDrejet];
-  }
+}
     
-  //Kollisions funktion mellem cirkel og firkant
-   //Taget fra https://www.jeffreythompson.org/collision-detection/circle-rect.php
-    function Kollision(circleX, circleY, diameter, firkantX, firkantY, firkantW, firkantH)
-    {
+//Kollisions funktion mellem cirkel og firkant
+//Taget fra https://www.jeffreythompson.org/collision-detection/circle-rect.php
+function Kollision(circleX, circleY, diameter, firkantX, firkantY, firkantW, firkantH)
+{
       
       //Selve kollisionen
      testX = circleX;
@@ -167,22 +166,24 @@ class RoterendeObjekt
      }
 
      return false;
-    }
+}
 
-    //funktion der "glider" spilleren på forhindrinngerne
-    function SpillersHastighed(vinkel, angleSpeed, radius)
-    {
+  
+
+//funktion der "glider" spilleren på forhindringerne
+function SpillersHastighed(vinkel, angleSpeed, radius)
+{
       xPlayerHastighed = -cos(vinkel) * angleSpeed * radius;
       yPlayerHastighed = -sin(vinkel) * angleSpeed * radius;
 
-    }
+}
 
 
 
 
-    //funktion mellem to cirkler
-    function KollisionCirkel(circle1X, circle1Y, diameter1, circle2X, circle2Y, diameter2)
-    {
+//kollision mellem to cirkler
+function KollisionCirkel(circle1X, circle1Y, diameter1, circle2X, circle2Y, diameter2)
+{
       distX = circle1X - circle2X;
       distY = circle1Y - circle2Y;
     
@@ -194,13 +195,13 @@ class RoterendeObjekt
       }
 
       return false;
-    }
+}
 
-  //knap til at skifte mellem forhindringstyper
-  let knapKlikket = false; // Global flag to prevent multiple triggers
-
-  function knap(forhindring, forhindringTjek, knapX, knapY, knapW, knapH)
-  {
+//knap til at skifte mellem forhindringstyper
+let knapKlikket = false; // Global flag to prevent multiple triggers
+ 
+function knap(forhindring, forhindringTjek, knapX, knapY, knapW, knapH)
+{
     push();
     if (forhindringTjek == true)
     {
@@ -229,9 +230,163 @@ class RoterendeObjekt
     }
 
     return forhindringTjek; 
+}
+
+
+
+function SpillerHastighedGlobal(hastighedGlobal)
+{
+    xPlayerHastighed = hastighedGlobal;
+    yPlayerHastighed = 0;
+}
+
+
+
+/////////////////////////////////////////////////
+//De forskellige forhindringstyper klasser
+/////////////////////////////////////////////////
+
+
+class HulForhindring
+{
+  constructor()
+  {
+    this.x = random(-200, 200);
+    this.y = random(-200, 200);
+    this.diameter = random(20, 50);
+    this.creationFrame = frameCount; // Gem hvornår objektet blev skabt
+
   }
 
+  tegn()
+  {
+    // Beregn hvor mange frames der er gået siden oprettelse
+    let elapsedFrames = frameCount - this.creationFrame;
+    
+    // 4 sekunder = 240 frames (ved 60 FPS)
+    let blinkDuration = 240;
 
+    if (elapsedFrames < blinkDuration)
+      {
+        push();
+        fill(0)
+        //Blinkende effekt for hul forhindringer (blinker hvert 30 frame)
+        if ((elapsedFrames / 30) % 2 < 1) 
+        {
+           circle(this.x, this.y, this.diameter);
+        } 
+        pop();
+      } else
+      {
+        push();
+        fill(0)
+        this.xReel = this.x
+        this.yReel = this.y
+        circle(this.xReel, this.yReel, this.diameter);
+        pop();
+      }
+  }
+}
+
+class SolidVæg
+{
+  constructor(x, y, bredde, højde, fart, retningY, retningX, delay)
+  {
+    this.x = x
+    this.y = y;
+    this.bredde = bredde;
+    this.højde = højde;
+    this.fart = fart;
+    this.retningY = retningY;
+    this.retningX = retningX;
+  }
+
+  tegn()
+  {
+    rect(this.x, this.y, this.bredde, this.højde);
+  }
+
+  bevæg()
+    {
+      this. x += this.fart * this.retningX
+      this.y += this.fart * this.retningY
+    }
+
+}
+
+///Væg forhindringer
+class VægForhindring
+{
+    constructor(bredde, højde, fart)
+    {
+        this.bredde = bredde;
+        this.højde = højde;
+        this.fart = fart;
+        this.tjek = floor(random(2))
+       
+        //Random tjek, der bestemmer hvilken retning forhindringen kommer fra, 
+        // og dermed hvilken retning den bevæger sig i
+        if (this.tjek == 1)
+        {
+          this.retningX = -1;
+          this.retningY = -1;
+        } else {
+          this.retningX = 1;
+          this.retningY = 1;
+        }
+
+        //Kalder metode der bestemmer forhindringens start position
+        this.VandretEllerLodret();
+    }
+
+    VandretEllerLodret()
+    {
+          //random spawn vandret
+          if (this.tjek == 1)
+         { 
+            //random spawn på y-aksen
+            this.y = random(-250, 250);
+
+            if (this.tjek == 0)
+            {
+                this.x = random(-550, -450);
+            } else
+            {
+                this.x = random(450, 550);
+            }         
+          } else //random spawn Lodret
+          {
+            //random spawn på x-aksen
+            this.x = random(-250, 250);
+
+            if (this.tjek == 0)
+            {
+                this.y = random(-450, -350);
+            } else
+            {
+                this.y = random(350, 450);
+            }
+          }
+    }
+    
+    tegn()
+    {
+        rect(this.x, this.y, this.bredde, this.højde);
+    }
+
+    bevæg()
+    {
+        this.x += this.fart * this.retningX;
+        this.y += this.fart * this.retningY;
+
+        //tjek for kollision med spiller
+        let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, this.x, this.y, this.bredde, this.højde);
+        if (kollisiontjek)
+        {
+          print("kollision");
+        }
+    }
+}
 
 
 class BoldeForhindring
@@ -279,141 +434,3 @@ class BoldeForhindring
     }
 
   }
-
-
-class SolidVæg
-{
-  constructor(x, y, bredde, højde, fart, retningY, retningX, delay)
-  {
-    this.x = x
-    this.y = y;
-    this.bredde = bredde;
-    this.højde = højde;
-    this.fart = fart;
-    this.retningY = retningY;
-    this.retningX = retningX;
-  }
-
-  tegn()
-  {
-    rect(this.x, this.y, this.bredde, this.højde);
-  }
-
-  bevæg()
-    {
-      this. x += this.fart * this.retningX
-      this.y += this.fart * this.retningY
-    }
-
-}
-///Væg forhindringer
-  class VægForhindring
-{
-    constructor(bredde, højde, fart, vandretEllerLodret)
-    {
-        this.bredde = bredde;
-        this.højde = højde;
-        this.fart = fart;
-        this.retning = vandretEllerLodret;
-        this.tjek = floor(random(2))
-       
-        if (this.tjek == 1)
-        {
-          this.retningX = -1;
-          this.retningY = -1;
-        }
-
-        this.VandretEllerLodret();
-    }
-
-    VandretEllerLodret()
-    {
-          //random spawn vandret
-          if (this.retning == 1)
-         { 
-            //random spawn på y-aksen
-            this.y = random(-250, 250);
-
-            if (this.tjek == 0)
-            {
-                this.x = random(-550, -450);
-            } else
-            {
-                this.x = random(450, 550);
-            }         
-          } else //random spawn Lodret
-          {
-            //random spawn på x-aksen
-            this.x = random(-250, 250);
-
-            if (this.tjek == 0)
-            {
-                this.y = random(-450, -350);
-            } else
-            {
-                this.y = random(350, 450);
-            }
-          }
-    }
-    
-    tegn()
-    {
-        rect(this.x, this.y, this.bredde, this.højde);
-    }
-
-    bevæg()
-    {
-        this.x += this.fart * this.retningX;
-        this.y += this.fart * this.retningY;
-    }
-}
-
-
-
-function SpillerHastighedGlobal(hastighedGlobal)
-{
-    xPlayerHastighed = hastighedGlobal;
-    yPlayerHastighed = 0;
-}
-
-
-class HulForhindring
-{
-  constructor()
-  {
-    this.x = random(-200, 200);
-    this.y = random(-200, 200);
-    this.diameter = random(20, 50);
-    this.creationFrame = frameCount; // Gem hvornår objektet blev skabt
-
-  }
-
-  tegn()
-  {
-    // Beregn hvor mange frames der er gået siden oprettelse
-    let elapsedFrames = frameCount - this.creationFrame;
-    
-    // 4 sekunder = 240 frames (ved 60 FPS)
-    let blinkDuration = 240;
-
-    if (elapsedFrames < blinkDuration)
-      {
-        push();
-        fill(0)
-        //Blinkende effekt for hul forhindringer (blinker hvert 30 frame)
-        if ((elapsedFrames / 30) % 2 < 1) 
-        {
-           circle(this.x, this.y, this.diameter);
-        } 
-        pop();
-      } else
-      {
-        push();
-        fill(0)
-        this.xReel = this.x
-        this.yReel = this.y
-        circle(this.xReel, this.yReel, this.diameter);
-        pop();
-      }
-  }
-}

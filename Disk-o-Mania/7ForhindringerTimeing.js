@@ -87,15 +87,15 @@ function ForhindringerTimeingDraw()
       vægForhindringer[i].bevæg();
 
       //tjek for kollision mellem spiller og vægforhindringer
-      let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, vægForhindringer[i].x, vægForhindringer[i].y, vægForhindringer[i].bredde, vægForhindringer[i].højde);
+     // let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, vægForhindringer[i].x, vægForhindringer[i].y, vægForhindringer[i].bredde, vægForhindringer[i].højde);
     
       //Spiller "glider" på vægforhindringer
-      if (kollisiontjek.tjek)
-      {
+     // if (kollisiontjek.tjek)
+     // {
       //SpillerHastighedGlobal(vægForhindringer[i].fart);
       //xPlayer = kollisiontjek.x;
       //yPlayer = kollisiontjek.y;
-      }
+     // }
     }
   }
 }
