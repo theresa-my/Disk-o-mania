@@ -12,6 +12,7 @@ function ForhindringerTimeingSetup()
         Forhindringerbolde[i] = new BoldeForhindring(BoldeforhindringStartV,2.5,15,0.7)
     }
   
+     vægForhindringer = [];
 
     
 
@@ -91,9 +92,9 @@ function ForhindringerTimeingDraw()
       //Spiller "glider" på vægforhindringer
       if (kollisiontjek.tjek)
       {
-      SpillerHastighedGlobal(vægForhindringer[i].fart);
-      xPlayer = kollisiontjek.x;
-      yPlayer = kollisiontjek.y;
+      //SpillerHastighedGlobal(vægForhindringer[i].fart);
+      //xPlayer = kollisiontjek.x;
+      //yPlayer = kollisiontjek.y;
       }
     }
   }
@@ -117,20 +118,11 @@ function trigger30SecondEvent()
   }
 
 
-<<<<<<< Updated upstream
 
   for (let i = 0; i < 5; i++)
   {
-    vægForhindringer.push(new VægForhindring(30, 60,2,2));
+    vægForhindringer.push(new VægForhindring(30, 60, 0.5, 1));
   }
-=======
-//Lav vægforhindringer
-    vægForhindringer = [];
-    for (let i = 0; i < 5; i++)
-    {
-      vægForhindringer.push(new VægForhindring(30, 60));
-    }
->>>>>>> Stashed changes
 
 
 
