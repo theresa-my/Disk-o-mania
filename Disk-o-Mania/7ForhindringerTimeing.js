@@ -11,6 +11,7 @@ function ForhindringerTimeingSetup()
     {
         Forhindringerbolde[i] = new BoldeForhindring(BoldeforhindringStartV,2.5,15,0.7)
     }
+  
 
     //Lav vægforhindringer
     vægForhindringer = [];
@@ -60,7 +61,10 @@ function ForhindringerTimeingDraw()
   }
 
 
-
+  for (let i = 0; i < Forhindringerbolde.length; i++)
+    {
+      Forhindringerbolde[i].SkydBoldeforhindring();
+    }
 
 
 
@@ -107,10 +111,14 @@ function trigger30SecondEvent()
   //Bolde forhindringer
   if (BoldeforhindringTjek)
   {
-    for (let i = 0; i < Forhindringerbolde.length; i++)
+      BoldeforhindringStartV = random(0,2*PI);
+    for (let i = 0; i < 10; i++)
     {
-      Forhindringerbolde[i].SkydBoldeforhindring();
+        Forhindringerbolde[i] = new BoldeForhindring(BoldeforhindringStartV,2.5,15,0.7)
+
     }
+
+    
   }
 
 
