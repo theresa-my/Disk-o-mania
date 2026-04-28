@@ -1,18 +1,26 @@
 function ForhindringerTimeingSetup()
 {
-  GameTime = 0;
-  last30SecondMark = 0;
-  last60SecondMark = 0;
+   GameTime = 0;
+   last30SecondMark = 0;
+   last60SecondMark = 0;
   
-  
+    //Lav forhindringsbolde
     Forhindringerbolde = []
+    BoldeforhindringStartV = random(0,2*PI);
+    for (let i = 0; i < 10; i++)
+    {
+        Forhindringerbolde[i] = new BoldeForhindring(BoldeforhindringStartV,2.5,15,0.7)
+    }
   
 
-
+    //Lav vægforhindringer
     vægForhindringer = [];
+    for (let i = 0; i < 5; i++)
+    {
+      vægForhindringer.push(new VægForhindring(30, 60));
+    }
 
-
-  
+    //Lav roterede forhindringer
     forhindringer = [];
     for (let i = 0; i < 1; i++)
     {
