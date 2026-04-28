@@ -117,7 +117,7 @@ function trigger30SecondEvent()
 
   for (let i = 0; i < 5; i++)
   {
-    vægForhindringer.push(new VægForhindring(30, 60));
+    vægForhindringer.push(new VægForhindring(30, 60,2,2));
   }
 
 
