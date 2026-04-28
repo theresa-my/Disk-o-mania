@@ -383,7 +383,7 @@ class VægForhindring
         let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, this.x, this.y, this.bredde, this.højde);
         if (kollisiontjek)
         {
-          print("kollision");
+          
         }
     }
 }
