@@ -310,8 +310,14 @@ class SolidVæg
     {
       this. x += this.fart * this.retningX
       this.y += this.fart * this.retningY
-    }
 
+      // tjek for kollision med spiller
+      let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, this.x, this.y, this.bredde, this.højde);
+      if (kollisiontjek.tjek)
+      {
+        //Hvad der sker ved kollision 
+      }
+    }
 }
 
 ///Væg forhindringer
@@ -383,7 +389,7 @@ class VægForhindring
         let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, this.x, this.y, this.bredde, this.højde);
         if (kollisiontjek)
         {
-          
+          //Hvad der sker ved kollision
         }
     }
 }
