@@ -13,12 +13,7 @@ function ForhindringerTimeingSetup()
     }
   
 
-    //Lav vægforhindringer
-    vægForhindringer = [];
-    for (let i = 0; i < 5; i++)
-    {
-      vægForhindringer.push(new VægForhindring(30, 60));
-    }
+    
 
     //Lav roterede forhindringer
     forhindringer = [];
@@ -38,7 +33,7 @@ function ForhindringerTimeingDraw()
   GameTime = GameTime + 1;
  
   
-  // Convert frames to seconds (assuming 60 FPS)
+  // Konveter frames til sekunder (går ud fra 60 FPS)
   let GameTimeseconds = Math.floor(GameTime / 60);
    text(GameTimeseconds, 300, -250);
 
@@ -122,11 +117,20 @@ function trigger30SecondEvent()
   }
 
 
+<<<<<<< Updated upstream
 
   for (let i = 0; i < 5; i++)
   {
     vægForhindringer.push(new VægForhindring(30, 60,2,2));
   }
+=======
+//Lav vægforhindringer
+    vægForhindringer = [];
+    for (let i = 0; i < 5; i++)
+    {
+      vægForhindringer.push(new VægForhindring(30, 60));
+    }
+>>>>>>> Stashed changes
 
 
 
