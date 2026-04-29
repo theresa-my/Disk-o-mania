@@ -5,10 +5,11 @@ function setup()
     canvaHøjde = 600;
     canvaBredde = 800;
     createCanvas(canvaBredde, canvaHøjde);
-
-    // start the game in the "spil" state so drawSpil() runs immediately
+    
+    //starter spillet i menu
     state = "start";
 
+    //Hvad gør det her?
     stateold = 0;
     angleMode(RADIANS);
 
@@ -24,7 +25,7 @@ function draw()
     ////State machine
     //Setup
 
-    // run setup only when the state actually changes (no early return)
+    // køre kun setup når state skifter
     if (state !== stateold) {
         if (state == "start") {
             setupStart();
@@ -38,7 +39,7 @@ function draw()
         stateold = state;
     }
 
-    //Draw
+    //Tegn alle states
     if (state== "start")
     {
         drawStart();

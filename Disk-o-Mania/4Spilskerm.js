@@ -1,8 +1,8 @@
 function setupSpil()
 {
   //Centrum af koordinatsystemet
-  centrumX = width/2;
-  centrumY = height/2;
+  centrumX = canvaBredde/2;
+  centrumY = canvaHøjde/2;
  
   //Variabler til roterende objekter
   angle = 0
@@ -13,14 +13,17 @@ function setupSpil()
 
  
   //nye roterende objekter
+  //skiven
   cirkel = new RoterendeObjekt(0,aktuelAngleSpeed ,"cirkel")
+  //Firkanter der "ligger" på forhindring
   firkant1 = new RoterendeObjekt(0.0*PI,aktuelAngleSpeed ,"firkant")
   firkant2 = new RoterendeObjekt(0.5*PI,aktuelAngleSpeed ,"firkant")
   firkant3 = new RoterendeObjekt(1.0*PI,aktuelAngleSpeed ,"firkant")
   firkant4 = new RoterendeObjekt(1.5*PI,aktuelAngleSpeed ,"firkant")
 
-
+  //Kør setup for spiller
   PlayerSetup();
+  //Kør setup for forhindringer
   ForhindringerTimeingSetup();
 }
 
@@ -36,16 +39,15 @@ function drawSpil()
   
   //Lav farve på is level + tegn cirkle
   push();
-  if (IsTjek)
-  {
-    fill( 144, 195, 232);
-  } else 
-  {
-    fill (0,0,0);
-  }
-  
-  cirkel.roter(0,0,500);
-  
+    if (IsTjek)
+    {
+      fill( 144, 195, 232);
+      else 
+    {
+      fill (0,0,0);
+    }
+    //tegner og rotere skiven
+    cirkel.roter(0,0,500);
   pop();
 
   //tegn roterede objekter
