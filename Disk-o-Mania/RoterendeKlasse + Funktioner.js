@@ -329,18 +329,24 @@ class VægForhindring
         this.højde = højde;
         this.fart = fart;
         this.tjek = floor(random(2))
+        this.tjek2 = floor(random(2))
        
         //Random tjek, der bestemmer hvilken retning forhindringen kommer fra, 
         // og dermed hvilken retning den bevæger sig i
-        if (this.tjek == 1)
-        {
+       // if (this.tjek == 1)
+       /* {
           this.retningX = -1;
-          this.retningY = -1;
+          this.retningY = 0;
         } else {
-          this.retningX = 1;
-          this.retningY = 1;
+          this.retningX = 0;
+          this.retningY = -1;
         }
+*/
+//1 = vandret
+//0 = lodret
 
+//0 = højre
+//1 = venstre
         //Kalder metode der bestemmer forhindringens start position
         this.VandretEllerLodret();
     }
@@ -350,27 +356,35 @@ class VægForhindring
           //random spawn vandret
           if (this.tjek == 1)
          { 
-            //random spawn på y-aksen
-            this.y = random(-250, 250);
+            this.retningY = 0;
 
-            if (this.tjek == 0)
+            //random spawn på y-aksen
+            this.y = random(-canvaHøjde/2, canvaHøjde/2);
+
+            if (this.tjek2 == 0)
             {
-                this.x = random(-550, -450);
+                this.x = random((canvaBredde/2+150), (canvaBredde/2+50));
+                this.retningX = -1;
+                
             } else
             {
-                this.x = random(450, 550);
+                this.x = random((-canvaBredde/2-150), (canvaBredde/2-50));
+                this.retningX = 1;
             }         
           } else //random spawn Lodret
           {
+            this.retningX = 0;
             //random spawn på x-aksen
-            this.x = random(-250, 250);
+            this.x = random(-canvaBredde/2, canvaBredde/2);
 
-            if (this.tjek == 0)
+            if (this.tjek2 == 0)
             {
-                this.y = random(-450, -350);
+                this.y = random(canvaHøjde/2 + 50, canvaHøjde/2 + 150);
+                this.retningY = -1;
             } else
             {
-                this.y = random(350, 450);
+                this.y = random(-canvaHøjde/2 - 50, - canvaHøjde/2 - 150);
+                this.retningY = 1;
             }
           }
     }
@@ -389,7 +403,14 @@ class VægForhindring
         let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, this.x, this.y, this.bredde, this.højde);
         if (kollisiontjek)
         {
-          //Hvad der sker ved kollision
+
+          if (this.tjek == 1) //vandret kollision
+          {
+             xPlayerHastighed = this.fart ; 
+          } else //lodret kollision
+          {
+             yPlayerHastighed = this.fart ;
+          }
         }
     }
 }
