@@ -1,13 +1,18 @@
 function PlayerSetup()
 {
-    PlayerAcceleration = 0.1;
+    playerAcceleration = 0.1;
     xPlayer = 10;    
     yPlayer = 50;
     xPlayerHastighed = 0;
     yPlayerHastighed = 0;
-
-    rPlayer = 20;  // spillerens radius (størrelse)
-    playerDistance = dist(0, 0, xPlayer, yPlayer);  // afstand til centrum
+    
+    // spillerens radius (størrelse)
+    rPlayer = 20;  
+    
+    ////////////slet senere//////////
+    // afstand fra spiller til centrum
+    //playerDistance = dist(0, 0, xPlayer, yPlayer);  
+    //////////////////////////////////
     
     //vinkel for spiller
     thetaPlayer = atan2(yPlayer, xPlayer);
@@ -16,6 +21,9 @@ function PlayerSetup()
     //drejede koordinater for spiller
     xPlayerDrejet = 0 
     yPlayerDrejet = 0
+
+    //Acceleration i forhold til vinkelhastighed og radius
+    accCentripital = 0;
 
     /////////////////////////////////////////////
     forhindringerHUL = [];
@@ -30,20 +38,20 @@ function PlayerSetup()
 
 function PlayerDraw()
 {
-
+    //bevæg spilleren
     xPlayer += xPlayerHastighed;
     yPlayer += yPlayerHastighed;
 
     //spiller bevægelse med piletaster
     if (keyIsDown(UP_ARROW)) 
     {
-      xPlayerHastighed += cos(dirPlayer) * PlayerAcceleration;
-      yPlayerHastighed += sin(dirPlayer) * PlayerAcceleration;
+      xPlayerHastighed += cos(dirPlayer) * playerAcceleration;
+      yPlayerHastighed += sin(dirPlayer) * playerAcceleration;
     }
     if (keyIsDown(DOWN_ARROW)) 
     {
-      xPlayerHastighed -= cos(dirPlayer) * PlayerAcceleration;
-      yPlayerHastighed -= sin(dirPlayer) * PlayerAcceleration;
+      xPlayerHastighed -= cos(dirPlayer) * playerAcceleration;
+      yPlayerHastighed -= sin(dirPlayer) * playerAcceleration;
     }
     if (keyIsDown(LEFT_ARROW)) 
     {
@@ -70,38 +78,41 @@ function PlayerDraw()
     pop();
 
 
-    //Udregn vinkelhastighed og radius for spillerens position
+    //Udregn vinkelhastighed og og afstand fra spiller til centrum (0,0)
     vinkelHastighed = 2*PI/(1/(aktuelAngleSpeed * 60))*0.02
-    radius = Math.sqrt(xPlayer**2 + yPlayer**2)
+    afstandTilCentrum = Math.sqrt(xPlayer**2 + yPlayer**2)
   
   
     //Is eller ej
     if (IsTjek)
     {
-      acc = vinkelHastighed ** 2 * radius;
+      // ny acceleration baseret på vinkelhastighed og afstand til centrum
+      accCentripital = vinkelHastighed ** 2 * afstandTilCentrum;
 
-      // få spilleren til at glide
+      // få spilleren til at glide på is
       if (xPlayer > 0)
       {
-        xPlayer += acc * cos(atan(yPlayer/xPlayer));
-        yPlayer += acc * sin(atan(yPlayer/xPlayer));
+        xPlayer += accCentripital * cos(atan(yPlayer/xPlayer));
+        yPlayer += accCentripital * sin(atan(yPlayer/xPlayer));
       } else
       {
-        xPlayer -= acc * cos(atan(yPlayer/xPlayer));
-        yPlayer -= acc * sin(atan(yPlayer/xPlayer));
+        xPlayer -= accCentripital * cos(atan(yPlayer/xPlayer));
+        yPlayer -= accCentripital * sin(atan(yPlayer/xPlayer));
       }
     }
 
-   // opdater afstand og vinkel
-    radius = Math.sqrt(xPlayer**2 + yPlayer**2)
-   
+   // opdater afstand til centrum og vinkel
+    afstandTilCentrum = Math.sqrt(xPlayer**2 + yPlayer**2)
     thetaPlayer = atan2(yPlayer, xPlayer);
 
-    // rotation af position omkring centrum
+    // Manuel rotation af spillerens position omkring centrum
+    //Dette gør at spilleren roterer
     thetaPlayer += aktuelAngleSpeed;
-    xPlayer = radius * cos(thetaPlayer);
-    yPlayer = radius * sin(thetaPlayer);
+    xPlayer = afstandTilCentrum * cos(thetaPlayer);
+    yPlayer = afstandTilCentrum * sin(thetaPlayer);
 
+    //spillerens orientering rykker sig med at den roterer
+    // Altså den "kigger" den rigtige vej
     dirPlayer += aktuelAngleSpeed;
     
 
@@ -117,14 +128,12 @@ function PlayerDraw()
       //Spiller "glider"på forhindringer
       if (kollisionstjek.tjek)
       {
-        SpillersHastighed( forhindringer[i].angle, forhindringer[i].angleSpeed, radius);
-    }
-      
+        SpillersHastighed( forhindringer[i].angle, forhindringer[i].angleSpeed, afstandTilCentrum);
+      } 
     }
 
-    //Kollision med Yderkanten
-
-    if ((sqrt(yPlayer*yPlayer+xPlayer*xPlayer)) > 300)
+    //Kollision med yderkanten
+    if (afstandTilCentrum > 300)
     {
      state = "gameOver";
     }

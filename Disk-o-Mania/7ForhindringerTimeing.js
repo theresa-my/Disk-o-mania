@@ -14,8 +14,6 @@ function ForhindringerTimeingSetup()
   
      vægForhindringer = [];
 
-    
-
     //Lav roterede forhindringer
     forhindringer = [];
     for (let i = 0; i < 1; i++)
@@ -35,13 +33,15 @@ function ForhindringerTimeingDraw()
  
   
   // Konveter frames til sekunder (går ud fra 60 FPS)
-  let GameTimeseconds = Math.floor(GameTime / 60);
-   text(GameTimeseconds, 300, -250);
+  let GameTimeSeconds = Math.floor(GameTime / 60);
+  //Spille tid printet på spilleskærm
+  text(GameTimeSeconds, 300, -250);
 
 
   // Check for 30-second milestones
-  let current30Mark = Math.floor(GameTimeseconds / 30) * 30;
-  if (current30Mark > last30SecondMark && current30Mark > 0) {
+  let current30Mark = Math.floor(GameTimeSeconds / 30) * 30;
+  if (current30Mark > last30SecondMark && current30Mark > 0) 
+  {
     // Trigger 30-second event
     trigger30SecondEvent();
     last30SecondMark = current30Mark;
@@ -49,8 +49,9 @@ function ForhindringerTimeingDraw()
   
 
   // Check for 60-second milestones
-  let current60Mark = Math.floor(GameTimeseconds / 60) * 60;
-  if (current60Mark > last60SecondMark && current60Mark > 0) {
+  let current60Mark = Math.floor(GameTimeSeconds / 60) * 60;
+  if (current60Mark > last60SecondMark && current60Mark > 0) 
+  {
     // Trigger 60-second event
     trigger60SecondEvent();
     last60SecondMark = current60Mark;
@@ -58,14 +59,15 @@ function ForhindringerTimeingDraw()
 
 
   for (let i = 0; i < Forhindringerbolde.length; i++)
-    {
+  {
       Forhindringerbolde[i].SkydBoldeforhindring();
-    }
+  }
 
 
 
 
 
+  //print Firkant forhindringer
   if (FirkantforhindringTjek)
   {
     //Firkant forhindringer
@@ -100,22 +102,13 @@ function trigger30SecondEvent()
     for (let i = 0; i < 10; i++)
     {
         Forhindringerbolde[i] = new BoldeForhindring(BoldeforhindringStartV,2.5,15,0.7)
-
     }
-
-    
   }
-
-
 
   for (let i = 0; i < 5; i++)
   {
     vægForhindringer.push(new VægForhindring(30, 60, 0.5, 1));
   }
-
-
-
-  
 }
 
 

@@ -9,7 +9,6 @@ function setupSpil()
   count = 0;
   aktuelAngleSpeed = 0.003;
   angleMode(radians);
-  acc = 0;
 
  
   //nye roterende objekter
@@ -42,6 +41,7 @@ function drawSpil()
     if (IsTjek)
     {
       fill( 144, 195, 232);
+    }
       else 
     {
       fill (0,0,0);
@@ -50,7 +50,7 @@ function drawSpil()
     cirkel.roter(0,0,500);
   pop();
 
-  //tegn roterede objekter
+  //tegn roterede firkanter der "Ligger" på skiven
   firkant1.roter(-2.5,10,5,200);
   firkant2.roter(-2.5,10,5,200); 
   firkant3.roter(-2.5,10,5,200); 
@@ -58,17 +58,9 @@ function drawSpil()
 
   //tegn forhindringer
   ForhindringerTimeingDraw()
-  
 
-  //Spiller
-  PlayerDraw()
-
-
-  
-
-
-
-    
+  //tegn spiller
+  PlayerDraw() 
 }
 
 
