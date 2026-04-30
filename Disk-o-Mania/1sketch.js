@@ -12,15 +12,13 @@ function setup()
     //Hvad gør det her?
     stateold = 0;
     angleMode(RADIANS);
-
-
 }
 
 
 
 function draw() 
 {
-    background(220);
+    background(0);
 
     ////State machine
     //Setup

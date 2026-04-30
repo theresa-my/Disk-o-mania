@@ -248,8 +248,8 @@ class BoldeForhindring
       {
         // Draw the ball if no collision
         push();
-        fill(255,0,0);
-        circle(this.x, this.y, this.diameter);
+          fill(255,0,0);
+          circle(this.x, this.y, this.diameter);
         pop();
       }
     }

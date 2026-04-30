@@ -62,10 +62,10 @@ function PlayerDraw()
 
     //tegn spiller
     push();
-    fill(255,0,0);
-    circle(xPlayer, yPlayer, rPlayer);
-    circle(xPlayer + cos(dirPlayer-PI/4)*10, yPlayer + sin(dirPlayer-PI/4)*10, 10);
-    circle(xPlayer + cos(dirPlayer+PI/4)*10, yPlayer + sin(dirPlayer+PI/4)*10, 10);
+      fill(255,0,0);
+      circle(xPlayer, yPlayer, rPlayer);
+      circle(xPlayer + cos(dirPlayer-PI/4)*10, yPlayer + sin(dirPlayer-PI/4)*10, 10);
+      circle(xPlayer + cos(dirPlayer+PI/4)*10, yPlayer + sin(dirPlayer+PI/4)*10, 10);
     pop();
 
 
