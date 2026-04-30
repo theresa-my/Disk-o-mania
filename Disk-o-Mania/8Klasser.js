@@ -79,17 +79,15 @@ class RoterendeObjekt
     }
   }
 
-  /////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////
 //De forskellige forhindringstyper klasser
 /////////////////////////////////////////////////
-
-
-class HulForhindring extends RoterendeObjekt
+class HulForhindring
 {
-  constructor(angle, angleSpeed, polygon)
+  constructor()
   {
-    super(angle, angleSpeed, "cirkel");
-
     this.x = random(-200, 200);
     this.y = random(-200, 200);
     this.diameter = random(20, 50);
@@ -127,6 +125,7 @@ class HulForhindring extends RoterendeObjekt
   }
 }
 
+
 class SolidVæg
 {
   constructor(x, y, bredde, højde, fart, retningY, retningX, delay)
@@ -158,7 +157,6 @@ class SolidVæg
       }
     }
 }
-
 
 
 ///Væg forhindringer
@@ -289,4 +287,5 @@ class BoldeForhindring
         pop();
       }
     }
+
   }
