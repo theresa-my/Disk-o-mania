@@ -62,10 +62,10 @@ function PlayerDraw()
 
     //tegn spiller
     push();
-    fill(255,0,0);
-    circle(xPlayer, yPlayer, rPlayer);
-    circle(xPlayer + cos(dirPlayer-PI/4)*10, yPlayer + sin(dirPlayer-PI/4)*10, 10);
-    circle(xPlayer + cos(dirPlayer+PI/4)*10, yPlayer + sin(dirPlayer+PI/4)*10, 10);
+      fill(255,0,0);
+      circle(xPlayer, yPlayer, rPlayer);
+      circle(xPlayer + cos(dirPlayer-PI/4)*10, yPlayer + sin(dirPlayer-PI/4)*10, 10);
+      circle(xPlayer + cos(dirPlayer+PI/4)*10, yPlayer + sin(dirPlayer+PI/4)*10, 10);
     pop();
 
 
@@ -117,7 +117,7 @@ function PlayerDraw()
       let kollisionstjek = Kollision(drejdeKoor[0], drejdeKoor[1], rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height);
       
       //Spiller "glider"på forhindringer
-      if (kollisionstjek.tjek)
+      if (kollisionstjek)
       {
         SpillersHastighed( forhindringer[i].angle, forhindringer[i].angleSpeed, afstandTilCentrum);
       } 

@@ -59,9 +59,10 @@ function Kollision(circleX, circleY, diameter, firkantX, firkantY, firkantW, fir
     
      if (distanc <= diameter/2) 
      {
-       fill(255,0,0);
+      //Skal slettes
        text("Game Over", 0, 0);
-
+       ////////////////////////
+/////////skal det her slettes???/////////////7
       if (koldir == "op") 
       {
         circleY = firkantY - diameter/2
@@ -80,8 +81,9 @@ function Kollision(circleX, circleY, diameter, firkantX, firkantY, firkantW, fir
         circleX = firkantX - diameter/2
         circleX -= 1.7;
       }
+      /////////////////////////////////////////////////
 
-      return { tjek: true, x: circleX, y: circleY };
+      return true;
      }
 
      return false;
@@ -120,7 +122,7 @@ let knapKlikket = false; // Global flag to prevent multiple triggers
  
 function knap(forhindring, forhindringTjek, knapX, knapY, knapW, knapH)
 {
-    push();
+  push();
     if (forhindringTjek == true)
     {
       fill(0,255,0);
@@ -133,32 +135,22 @@ function knap(forhindring, forhindringTjek, knapX, knapY, knapW, knapH)
     fill(255);
     textSize(20);
     text(forhindring, knapX + 10, knapY + 30); 
-    pop();
+  pop();
 
     
-    if (mouseIsPressed && !knapKlikket && mouseX > knapX && mouseX < knapX + knapW && mouseY > knapY && mouseY < knapY + knapH)
-    {
-      knapKlikket = true;
-      return !forhindringTjek; 
-    }
+  if (mouseIsPressed && !knapKlikket && mouseX > knapX && mouseX < knapX + knapW && mouseY > knapY && mouseY < knapY + knapH)
+  {
+    knapKlikket = true;
+    return !forhindringTjek; 
+  }
     
-    if (!mouseIsPressed)
-    {
-      knapKlikket = false;
-    }
+  if (!mouseIsPressed)
+  {
+    knapKlikket = false;
+  }
 
-    return forhindringTjek; 
+  return forhindringTjek; 
 }
-
-
-
-//////////SKAL DEN SLETTES??////////////
-function SpillerHastighedGlobal(hastighedGlobal)
-{
-    xPlayerHastighed = hastighedGlobal;
-    yPlayerHastighed = 0;
-}
-////////////////////////////////////////
 
 //Hvad der sker når der er kollision mellem spiller og  firkant forhindring
 

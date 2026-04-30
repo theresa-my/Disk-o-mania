@@ -101,7 +101,10 @@ class SolidVæg
 
   tegn()
   {
-    rect(this.x, this.y, this.bredde, this.højde);
+    push();
+      fill(28, 90, 166);
+      rect(this.x, this.y, this.bredde, this.højde);
+    pop();
   }
 
   bevæg()
@@ -111,7 +114,7 @@ class SolidVæg
 
       // tjek for kollision med spiller
       let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, this.x, this.y, this.bredde, this.højde);
-      if (kollisiontjek.tjek)
+      if (kollisiontjek)
       {
         //Hvad der sker ved kollision 
       }
@@ -180,7 +183,10 @@ class VægForhindring
     
     tegn()
     {
-        rect(this.x, this.y, this.bredde, this.højde);
+        push();
+          fill(118, 99, 230);
+          rect(this.x, this.y, this.bredde, this.højde);
+        pop();
     }
 
     bevæg()
@@ -242,8 +248,8 @@ class BoldeForhindring
       {
         // Draw the ball if no collision
         push();
-        fill(255,0,0);
-        circle(this.x, this.y, this.diameter);
+          fill(255,0,0);
+          circle(this.x, this.y, this.diameter);
         pop();
       }
     }
