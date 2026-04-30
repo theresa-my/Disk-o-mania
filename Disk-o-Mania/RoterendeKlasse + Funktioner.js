@@ -330,23 +330,15 @@ class VægForhindring
         this.fart = fart;
         this.tjek = floor(random(2))
         this.tjek2 = floor(random(2))
-       
-        //Random tjek, der bestemmer hvilken retning forhindringen kommer fra, 
-        // og dermed hvilken retning den bevæger sig i
-       // if (this.tjek == 1)
-       /* {
-          this.retningX = -1;
-          this.retningY = 0;
-        } else {
-          this.retningX = 0;
-          this.retningY = -1;
-        }
-*/
-//1 = vandret
-//0 = lodret
+        
+        //tjek - 1 = vandret
+        //tjek - 0 = lodret
 
-//0 = højre
-//1 = venstre
+        //tjek2 - 0 = kommer fra HØJRE side
+        //tjek2 - 1 = kommer fra VENSTRE side
+
+        console.log("tjek værdi:", this.tjek); // Tilføjet for at se værdien
+
         //Kalder metode der bestemmer forhindringens start position
         this.VandretEllerLodret();
     }
@@ -359,23 +351,23 @@ class VægForhindring
             this.retningY = 0;
 
             //random spawn på y-aksen
-            this.y = random(-canvaHøjde/2, canvaHøjde/2);
+            this.y = random(-skiveDiameter/2, skiveDiameter/2);
 
             if (this.tjek2 == 0)
             {
-                this.x = random((canvaBredde/2+150), (canvaBredde/2+50));
+                this.x = random(canvaBredde/2 + 50, canvaBredde/2 + 150);
                 this.retningX = -1;
                 
             } else
             {
-                this.x = random((-canvaBredde/2-150), (canvaBredde/2-50));
+                this.x = random(-canvaBredde/2 - 150, -canvaBredde/2 - 50);
                 this.retningX = 1;
             }         
           } else //random spawn Lodret
           {
             this.retningX = 0;
             //random spawn på x-aksen
-            this.x = random(-canvaBredde/2, canvaBredde/2);
+            this.x = random(-skiveDiameter/2, skiveDiameter/2);
 
             if (this.tjek2 == 0)
             {
@@ -439,9 +431,6 @@ class BoldeForhindring
       // Update position by velocity
       this.x += this.vx;
       this.y += this.vy;
-
-
-
 
       // Check for collision with player
       if (KollisionCirkel(this.x, this.y, this.diameter, xPlayer, yPlayer, 20))

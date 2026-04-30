@@ -10,6 +10,9 @@ function setupSpil()
   aktuelAngleSpeed = 0.003;
   angleMode(radians);
 
+  //til skiven
+  skiveDiameter = 500;
+
  
   //nye roterende objekter
   //skiven
@@ -47,7 +50,7 @@ function drawSpil()
       fill (0,0,0);
     }
     //tegner og rotere skiven
-    cirkel.roter(0,0,500);
+    cirkel.roter(0,0, skiveDiameter);
   pop();
 
   //tegn roterede firkanter der "Ligger" på skiven

@@ -105,9 +105,10 @@ function trigger30SecondEvent()
     }
   }
 
+  //lav vægforhindringer
   for (let i = 0; i < 5; i++)
   {
-    vægForhindringer.push(new VægForhindring(30, 60, 0.5, 1));
+    vægForhindringer.push(new VægForhindring(60, 60, 0.5, 1));
   }
 }
 
