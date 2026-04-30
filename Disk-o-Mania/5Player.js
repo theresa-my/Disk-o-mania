@@ -24,15 +24,6 @@ function PlayerSetup()
 
     //Acceleration i forhold til vinkelhastighed og radius
     accCentripital = 0;
-
-    /////////////////////////////////////////////
-    forhindringerHUL = [];
-    for (let i = 0; i < 1; i++)
-    {
-      forhindringerHUL.push(new HulForhindring)
-    }
-    ///////////////////////////////////////////////
-    
 }
 
 
@@ -138,13 +129,6 @@ function PlayerDraw()
      state = "gameOver";
     }
 
-
-    //////////////////////////////////////////////////////
-    for (let i = 0; i < forhindringerHUL.length; i++)
-    {
-      forhindringerHUL[i].tegn();
-    }
-    ///////////////////////////////////////////////////
 }
 
 

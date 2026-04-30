@@ -4,7 +4,7 @@ function ForhindringerTimeingSetup()
    last30SecondMark = 0;
    last60SecondMark = 0;
   
-    //Lav forhindringsbolde
+    //Lav de første forhindringsbolde
     Forhindringerbolde = []
     BoldeforhindringStartV = random(0,2*PI);
     for (let i = 0; i < 10; i++)
@@ -13,6 +13,7 @@ function ForhindringerTimeingSetup()
     }
   
      vægForhindringer = [];
+     solidVægForhindringer = [];
 
     //Lav roterede forhindringer
     forhindringer = [];
@@ -81,14 +82,18 @@ function ForhindringerTimeingDraw()
 
 
 //print VægForhinringer
-  if (VæggeforhindringTjek)
-  {
+  
     for (let i = 0; i < vægForhindringer.length; i++)
     {
       vægForhindringer[i].tegn();
       vægForhindringer[i].bevæg();
     }
-  }
+//Print solidvægforhindring
+  for (let i = 0; i < solidVægForhindringer.length; i++)
+    {
+      solidVægForhindringer[i].tegn();
+      solidVægForhindringer[i].bevæg();
+    }
 }
 
 
@@ -106,21 +111,23 @@ function trigger30SecondEvent()
   }
 
   //lav vægforhindringer
-  for (let i = 0; i < 5; i++)
+  if (VæggeforhindringTjek)
   {
-    vægForhindringer.push(new VægForhindring(60, 60, 0.5, 1));
+    for (let i = 0; i < 5; i++)
+    {
+      vægForhindringer.push(new VægForhindring(60, 60, 0.5, 1));
+    }
   }
 }
 
+  
 
 function trigger60SecondEvent()
 {
-  /*
   if(SolidVæggeforhindringTjek)
   {
-    vægForhindringer.push(new SolidVægForhindring(constructor(x, y, bredde, højde, fart, retningY, retningX)));
- 
-    vægForhindringer.push(new SolidVægForhindring(constructor(x+1500, y, bredde, højde, fart, retningY, retningX)));
+    solidVægForhindringer.push(new SolidVæg(constructor(x, y, bredde, højde, fart, retningY, retningX)));
+    solidVægForhindringer.push(new SolidVæg(constructor(x+1500, y, bredde, højde, fart, retningY, retningX)));
   } //gør x eller y større for at skabe et delay mellem de to solid væg forhindringer
-*/
+
   }   
