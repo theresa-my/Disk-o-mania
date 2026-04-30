@@ -115,10 +115,12 @@ function trigger30SecondEvent()
 
 function trigger60SecondEvent()
 {
+  /*
   if(SolidVæggeforhindringTjek)
   {
     vægForhindringer.push(new SolidVægForhindring(constructor(x, y, bredde, højde, fart, retningY, retningX)));
  
     vægForhindringer.push(new SolidVægForhindring(constructor(x+1500, y, bredde, højde, fart, retningY, retningX)));
   } //gør x eller y større for at skabe et delay mellem de to solid væg forhindringer
-}   
+*/
+  }   
