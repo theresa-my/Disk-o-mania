@@ -140,8 +140,8 @@ function Kollision(circleX, circleY, diameter, firkantX, firkantY, firkantW, fir
     
      if (distanc <= diameter/2) 
      {
-       // fill(255,0,0);
-       // text("Game Over", 0, 0);
+       fill(255,0,0);
+       text("Game Over", 0, 0);
 
       if (koldir == "op") 
       {
@@ -337,7 +337,7 @@ if (SpillerX - Spillerradius < KasseX + KasseBredde && SpillerX > KasseX + Kasse
 
 if (SpillerY + Spillerradius > KasseY && SpillerY < KasseY)
 {
-    yPlayerHastighed = KasseHastighedY - 2  
+    yPlaterHastighed = KasseHastighedY - 2  
 }
 
 if (SpillerY - Spillerradius < KasseY + KasseHøjde && SpillerY > KasseY + KasseHøjde - 5)
@@ -426,15 +426,11 @@ class VægForhindring
         let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, this.x, this.y, this.bredde, this.højde);
         if (kollisiontjek)
         {
-          // Opdater spillerens position til den korrigerede
-          xPlayer = kollisiontjek.x;
-          yPlayer = kollisiontjek.y;
-
           Firkantkollition(this.x, this.y, this.bredde, this.højde, this.fart*this.retningX, this.fart*this.retningY, xPlayer, yPlayer, rPlayer);
 
           if (this.tjek == 1) //vandret kollision
           {
-             
+            
              
           } else //lodret kollision
           {
