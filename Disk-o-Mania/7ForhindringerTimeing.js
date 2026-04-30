@@ -122,12 +122,190 @@ function trigger30SecondEvent()
 
   
 
+
+
+
+
 function trigger60SecondEvent()
 {
+  randomting = random(1,9);
+
+    let x1 = canvaBredde/4;
+    let y1;
+    let bredde1;
+    let højde1;
+    let fart1;
+    let retningY1;
+    let retningX1;
+
+    let x2;
+    let y2;
+    let bredde2;
+    let højde2;
+    let fart2;
+    let retningY2;
+    let retningX2;
+
+
+  if (randomting < 2)
+  {
+    //top
+    let x1 = canvaBredde/4;
+    let y1 = -20;
+    let bredde1 = canvaBredde/2;
+    let højde1 = 20;
+    let fart1 = 0.5;
+    let retningY1 = 1;
+    let retningX1 = 0;
+
+    let x2 = -22222
+    let y2 = 0
+    let bredde2 = 0
+    let højde2 = 0
+    let fart2 = 0
+    let retningY2 = 0
+    let retningX2 = 0
+  }
+  else if (randomting < 3)
+  {
+    //bund
+    let x1 = canvaBredde/4;
+    let y1 = canvaHøjde + 20;
+    let bredde1 = canvaBredde/2;
+    let højde1 = 20;
+    let fart1 = 0.5;
+    let retningY1 = -1;
+    let retningX1 = 0;
+
+    let x2 = -22222
+    let y2 = 0
+    let bredde2 = 0
+    let højde2 = 0
+    let fart2 = 0
+    let retningY2 = 0
+    let retningX2 = 0
+  }
+  else if (randomting < 4)
+  {
+    //venstre
+    let x1 = -20;
+    let y1 = canvaHøjde/4;
+    let bredde1 = 20;
+    let højde1 = canvaHøjde/2;
+    let fart1 = 0.5;
+    let retningY1 = 0;
+    let retningX1 = 1;
+
+    let x2 = -22222
+    let y2 = 0
+    let bredde2 = 0
+    let højde2 = 0
+    let fart2 = 0
+    let retningY2 = 0
+    let retningX2 = 0
+  }
+  else if (randomting < 5)
+  {
+    //højre
+    let x1 = canvaBredde + 20;
+    let y1 = canvaHøjde/4;
+    let bredde1 = 20;
+    let højde1 = canvaHøjde/2;
+    let fart1 = 0.5;
+    let retningY1 = 0;
+    let retningX1 = -1;
+
+    let x2 = -22222
+    let y2 = 0
+    let bredde2 = 0
+    let højde2 = 0
+    let fart2 = 0
+    let retningY2 = 0
+    let retningX2 = 0
+  }
+  else if (randomting < 6)
+  {
+    //Side Side venstre top
+    let x1 = -20;
+    let y1 = canvaHøjde/4;
+    let bredde1 = 20;
+    let højde1 = canvaHøjde/4;
+    let fart1 = 0.5;
+    let retningY1 = 0;
+    let retningX1 = 1;
+
+    let x2 = canvaBredde + 20;
+    let y2 = canvaHøjde/4*2;
+    let bredde2 = 20;
+    let højde2 = canvaHøjde/4;
+    let fart2 = 0.5;
+    let retningY2 = 0;
+    let retningX2 = -1;
+  }
+  else if (randomting < 7)
+  {
+    //Side Side højre top
+    let x2 = -20;
+    let y2 = canvaHøjde/4;
+    let bredde2 = 20;
+    let højde2 = canvaHøjde/4;
+    let fart2 = 0.5;
+    let retningY2 = 0;
+    let retningX2 = 1;
+
+    let x1 = canvaBredde + 20;
+    let y1 = canvaHøjde/4*2;
+    let bredde1 = 20;
+    let højde1 = canvaHøjde/4;
+    let fart1 = 0.5;
+    let retningY1 = 0;
+    let retningX1 = -1;
+
+  }
+  else if (randomting < 8)
+  {
+    //over-under venstre top
+    let x1 = canvaBredde/4;
+    let y1 = -20;
+    let bredde1 = canvaBredde/4;
+    let højde1 = 20;
+    let fart1 = 0.5;
+    let retningY1 = 1;
+    let retningX1 = 0;
+
+    let x2 = canvaBredde/4*2;
+    let y2 = canvaHøjde + 20;
+    let bredde2 = canvaBredde/4;
+    let højde2 = 20;
+    let fart2 = 0.5;
+    let retningY2 = -1;
+    let retningX2 = 0;
+  }
+  else if (randomting < 9)
+  {
+    //over-under højre top
+    let x1 = canvaBredde/4*2;
+    let y1 = -20;
+    let bredde1 = canvaBredde/4;
+    let højde1 = 20;
+    let fart1 = 0.5;
+    let retningY1 = 1;
+    let retningX1 = 0;
+
+    let x2 = canvaBredde/4;
+    let y2 = canvaHøjde + 20;
+    let bredde2 = canvaBredde/4;
+    let højde2 = 20;
+    let fart2 = 0.5;
+    let retningY2 = -1;
+    let retningX2 = 0;
+  }
+
+
   if(SolidVæggeforhindringTjek)
   {
-    solidVægForhindringer.push(new SolidVæg(constructor(x, y, bredde, højde, fart, retningY, retningX)));
-    solidVægForhindringer.push(new SolidVæg(constructor(x+1500, y, bredde, højde, fart, retningY, retningX)));
+    solidVægForhindringer.push(new SolidVæg(x1, y1, bredde1, højde1, fart1, retningY1, retningX1));
+    solidVægForhindringer.push(new SolidVæg(x2, y2, bredde2, højde2, fart2, retningY2, retningX2));
   } //gør x eller y større for at skabe et delay mellem de to solid væg forhindringer
 
   }   
