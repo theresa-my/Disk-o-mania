@@ -39,7 +39,7 @@ function ForhindringerTimeingDraw()
 
 
   // Check for 30-second milestones
-  let current30Mark = Math.floor(GameTimeSeconds / 30) * 30;
+  let current30Mark = Math.floor(GameTimeSeconds / 5) * 5;
   if (current30Mark > last30SecondMark && current30Mark > 0) 
   {
     // Trigger 30-second event
@@ -49,7 +49,7 @@ function ForhindringerTimeingDraw()
   
 
   // Check for 60-second milestones
-  let current60Mark = Math.floor(GameTimeSeconds / 60) * 60;
+  let current60Mark = Math.floor(GameTimeSeconds / 15) * 15;
   if (current60Mark > last60SecondMark && current60Mark > 0) 
   {
     // Trigger 60-second event

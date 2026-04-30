@@ -140,8 +140,8 @@ function Kollision(circleX, circleY, diameter, firkantX, firkantY, firkantW, fir
     
      if (distanc <= diameter/2) 
      {
-       fill(255,0,0);
-       text("Game Over", 0, 0);
+       // fill(255,0,0);
+       // text("Game Over", 0, 0);
 
       if (koldir == "op") 
       {
@@ -320,6 +320,39 @@ class SolidVæg
     }
 }
 
+//Hvad der sker når der er kollision
+
+function Firkantkollition(KasseX, KasseY, KasseBredde, KasseHøjde, KasseHastighedX, KasseHastighedY, SpillerX, SpillerY, Spillerradius,)
+{
+if (SpillerX + Spillerradius > KasseX && SpillerX < KasseX) 
+{
+    xPlayerHastighed = KasseHastighedX -2
+}
+
+
+if (SpillerX - Spillerradius < KasseX + KasseBredde && SpillerX > KasseX + KasseBredde - 5) 
+{
+    xPlayerHastighed = KasseHastighedX + 2
+}
+
+if (SpillerY + Spillerradius > KasseY && SpillerY < KasseY)
+{
+    yPlayerHastighed = KasseHastighedY - 2  
+}
+
+if (SpillerY - Spillerradius < KasseY + KasseHøjde && SpillerY > KasseY + KasseHøjde - 5)
+{
+    yPlaterHastighed = KasseHastighedY + 2  
+}
+
+
+
+
+
+
+
+}
+
 ///Væg forhindringer
 class VægForhindring
 {
@@ -336,8 +369,6 @@ class VægForhindring
 
         //tjek2 - 0 = kommer fra HØJRE side
         //tjek2 - 1 = kommer fra VENSTRE side
-
-        console.log("tjek værdi:", this.tjek); // Tilføjet for at se værdien
 
         //Kalder metode der bestemmer forhindringens start position
         this.VandretEllerLodret();
@@ -395,13 +426,19 @@ class VægForhindring
         let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, this.x, this.y, this.bredde, this.højde);
         if (kollisiontjek)
         {
+          // Opdater spillerens position til den korrigerede
+          xPlayer = kollisiontjek.x;
+          yPlayer = kollisiontjek.y;
+
+          Firkantkollition(this.x, this.y, this.bredde, this.højde, this.fart*this.retningX, this.fart*this.retningY, xPlayer, yPlayer, rPlayer);
 
           if (this.tjek == 1) //vandret kollision
           {
-             xPlayerHastighed = this.fart ; 
+             
+             
           } else //lodret kollision
           {
-             yPlayerHastighed = this.fart ;
+           //  yPlayerHastighed = this.fart ;
           }
         }
     }
