@@ -150,155 +150,155 @@ function trigger60SecondEvent()
   if (randomting < 2)
   {
     //top
-    let x1 = canvaBredde/4;
-    let y1 = -20;
-    let bredde1 = canvaBredde/2;
-    let højde1 = 20;
-    let fart1 = 0.5;
-    let retningY1 = 1;
-    let retningX1 = 0;
+    x1 = canvaBredde/4;
+    y1 = -20;
+    bredde1 = canvaBredde/2;
+    højde1 = 20;
+    fart1 = 0.5;
+    retningY1 = 1;
+    retningX1 = 0;
 
-    let x2 = -22222
-    let y2 = 0
-    let bredde2 = 0
-    let højde2 = 0
-    let fart2 = 0
-    let retningY2 = 0
-    let retningX2 = 0
+    x2 = -22222
+    y2 = 0
+    bredde2 = 0
+    højde2 = 0
+    fart2 = 0
+    retningY2 = 0
+    retningX2 = 0
   }
   else if (randomting < 3)
   {
     //bund
-    let x1 = canvaBredde/4;
-    let y1 = canvaHøjde + 20;
-    let bredde1 = canvaBredde/2;
-    let højde1 = 20;
-    let fart1 = 0.5;
-    let retningY1 = -1;
-    let retningX1 = 0;
+    x1 = canvaBredde/4;
+    y1 = canvaHøjde + 20;
+    bredde1 = canvaBredde/2;
+    højde1 = 20;
+    fart1 = 0.5;
+    retningY1 = -1;
+    retningX1 = 0;
 
-    let x2 = -22222
-    let y2 = 0
-    let bredde2 = 0
-    let højde2 = 0
-    let fart2 = 0
-    let retningY2 = 0
-    let retningX2 = 0
+    x2 = -22222
+    y2 = 0
+    bredde2 = 0
+    højde2 = 0
+    fart2 = 0
+    retningY2 = 0
+    retningX2 = 0
   }
   else if (randomting < 4)
   {
     //venstre
-    let x1 = -20;
-    let y1 = canvaHøjde/4;
-    let bredde1 = 20;
-    let højde1 = canvaHøjde/2;
-    let fart1 = 0.5;
-    let retningY1 = 0;
-    let retningX1 = 1;
+    x1 = -20;
+    y1 = canvaHøjde/4;
+    bredde1 = 20;
+    højde1 = canvaHøjde/2;
+    fart1 = 0.5;
+    retningY1 = 0;
+    retningX1 = 1;
 
-    let x2 = -22222
-    let y2 = 0
-    let bredde2 = 0
-    let højde2 = 0
-    let fart2 = 0
-    let retningY2 = 0
-    let retningX2 = 0
+    x2 = -22222
+    y2 = 0
+    bredde2 = 0
+    højde2 = 0
+    fart2 = 0
+    retningY2 = 0
+    retningX2 = 0
   }
   else if (randomting < 5)
   {
     //højre
-    let x1 = canvaBredde + 20;
-    let y1 = canvaHøjde/4;
-    let bredde1 = 20;
-    let højde1 = canvaHøjde/2;
-    let fart1 = 0.5;
-    let retningY1 = 0;
-    let retningX1 = -1;
+    x1 = canvaBredde + 20;
+    y1 = canvaHøjde/4;
+    bredde1 = 20;
+    højde1 = canvaHøjde/2;
+    fart1 = 0.5;
+    retningY1 = 0;
+    retningX1 = -1;
 
-    let x2 = -22222
-    let y2 = 0
-    let bredde2 = 0
-    let højde2 = 0
-    let fart2 = 0
-    let retningY2 = 0
-    let retningX2 = 0
+    x2 = -22222
+    y2 = 0
+    bredde2 = 0
+    højde2 = 0
+    fart2 = 0
+    retningY2 = 0
+    retningX2 = 0
   }
   else if (randomting < 6)
   {
     //Side Side venstre top
-    let x1 = -20;
-    let y1 = canvaHøjde/4;
-    let bredde1 = 20;
-    let højde1 = canvaHøjde/4;
-    let fart1 = 0.5;
-    let retningY1 = 0;
-    let retningX1 = 1;
+    x1 = -20;
+    y1 = canvaHøjde/4;
+    bredde1 = 20;
+    højde1 = canvaHøjde/4;
+    fart1 = 0.5;
+    retningY1 = 0;
+    retningX1 = 1;
 
-    let x2 = canvaBredde + 20;
-    let y2 = canvaHøjde/4*2;
-    let bredde2 = 20;
-    let højde2 = canvaHøjde/4;
-    let fart2 = 0.5;
-    let retningY2 = 0;
-    let retningX2 = -1;
+    x2 = canvaBredde + 20;
+    y2 = canvaHøjde/4*2;
+    bredde2 = 20;
+    højde2 = canvaHøjde/4;
+    fart2 = 0.5;
+    retningY2 = 0;
+    retningX2 = -1;
   }
   else if (randomting < 7)
   {
     //Side Side højre top
-    let x2 = -20;
-    let y2 = canvaHøjde/4;
-    let bredde2 = 20;
-    let højde2 = canvaHøjde/4;
-    let fart2 = 0.5;
-    let retningY2 = 0;
-    let retningX2 = 1;
+    x2 = -20;
+    y2 = canvaHøjde/4;
+    bredde2 = 20;
+    højde2 = canvaHøjde/4;
+    fart2 = 0.5;
+    retningY2 = 0;
+    retningX2 = 1;
 
-    let x1 = canvaBredde + 20;
-    let y1 = canvaHøjde/4*2;
-    let bredde1 = 20;
-    let højde1 = canvaHøjde/4;
-    let fart1 = 0.5;
-    let retningY1 = 0;
-    let retningX1 = -1;
+    x1 = canvaBredde + 20;
+    y1 = canvaHøjde/4*2;
+    bredde1 = 20;
+    højde1 = canvaHøjde/4;
+    fart1 = 0.5;
+    retningY1 = 0;
+    retningX1 = -1;
 
   }
   else if (randomting < 8)
   {
     //over-under venstre top
-    let x1 = canvaBredde/4;
-    let y1 = -20;
-    let bredde1 = canvaBredde/4;
-    let højde1 = 20;
-    let fart1 = 0.5;
-    let retningY1 = 1;
-    let retningX1 = 0;
+    x1 = canvaBredde/4;
+    y1 = -20;
+    bredde1 = canvaBredde/4;
+    højde1 = 20;
+    fart1 = 0.5;
+    retningY1 = 1;
+    retningX1 = 0;
 
-    let x2 = canvaBredde/4*2;
-    let y2 = canvaHøjde + 20;
-    let bredde2 = canvaBredde/4;
-    let højde2 = 20;
-    let fart2 = 0.5;
-    let retningY2 = -1;
-    let retningX2 = 0;
+    x2 = canvaBredde/4*2;
+    y2 = canvaHøjde + 20;
+    bredde2 = canvaBredde/4;
+    højde2 = 20;
+    fart2 = 0.5;
+    retningY2 = -1;
+    retningX2 = 0;
   }
   else if (randomting < 9)
   {
     //over-under højre top
-    let x1 = canvaBredde/4*2;
-    let y1 = -20;
-    let bredde1 = canvaBredde/4;
-    let højde1 = 20;
-    let fart1 = 0.5;
-    let retningY1 = 1;
-    let retningX1 = 0;
+    x1 = canvaBredde/4*2;
+    y1 = -20;
+    bredde1 = canvaBredde/4;
+    højde1 = 20;
+    fart1 = 0.5;
+    retningY1 = 1;
+    retningX1 = 0;
 
-    let x2 = canvaBredde/4;
-    let y2 = canvaHøjde + 20;
-    let bredde2 = canvaBredde/4;
-    let højde2 = 20;
-    let fart2 = 0.5;
-    let retningY2 = -1;
-    let retningX2 = 0;
+    x2 = canvaBredde/4;
+    y2 = canvaHøjde + 20;
+    bredde2 = canvaBredde/4;
+    højde2 = 20;
+    fart2 = 0.5;
+    retningY2 = -1;
+    retningX2 = 0;
   }
 
 

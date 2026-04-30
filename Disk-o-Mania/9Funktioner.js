@@ -159,7 +159,6 @@ function Firkantkollition(KasseX, KasseY, KasseBredde, KasseHøjde, KasseHastigh
   if (SpillerX + Spillerradius > KasseX && SpillerX < KasseX) 
   {
     xPlayerHastighed = KasseHastighedX -2
-    print("hej")
   }
 
 
