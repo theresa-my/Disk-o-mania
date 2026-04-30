@@ -303,7 +303,10 @@ class SolidVæg
 
   tegn()
   {
+    push();
+ 
     rect(this.x, this.y, this.bredde, this.højde);
+    pop();
   }
 
   bevæg()

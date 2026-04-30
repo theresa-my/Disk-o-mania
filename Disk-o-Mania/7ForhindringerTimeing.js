@@ -3,6 +3,7 @@ function ForhindringerTimeingSetup()
    GameTime = 0;
    last30SecondMark = 0;
    last60SecondMark = 0;
+    randomting = 0;
   
     //Lav de første forhindringsbolde
     Forhindringerbolde = []
@@ -36,8 +37,12 @@ function ForhindringerTimeingDraw()
   // Konveter frames til sekunder (går ud fra 60 FPS)
   let GameTimeSeconds = Math.floor(GameTime / 60);
   //Spille tid printet på spilleskærm
+  push();
+    fill(255);
+    textSize(32);
   text(GameTimeSeconds, 300, -250);
-
+  text(randomting, 300, -200);
+  pop();
 
   // Check for 30-second milestones
   let current30Mark = Math.floor(GameTimeSeconds / 5) * 5;
@@ -129,8 +134,10 @@ function trigger30SecondEvent()
 function trigger60SecondEvent()
 {
   randomting = random(1,9);
+  //randomting = 7.5
 
-    let x1 = canvaBredde/4;
+
+    let x1;
     let y1;
     let bredde1;
     let højde1;
@@ -150,8 +157,8 @@ function trigger60SecondEvent()
   if (randomting < 2)
   {
     //top
-    x1 = canvaBredde/4;
-    y1 = -20;
+    x1 = -canvaBredde/4;
+    y1 = -canvaHøjde/2;
     bredde1 = canvaBredde/2;
     højde1 = 20;
     fart1 = 0.5;
@@ -169,8 +176,8 @@ function trigger60SecondEvent()
   else if (randomting < 3)
   {
     //bund
-    x1 = canvaBredde/4;
-    y1 = canvaHøjde + 20;
+    x1 = -canvaBredde/4;
+    y1 = canvaHøjde / 2 + 20;
     bredde1 = canvaBredde/2;
     højde1 = 20;
     fart1 = 0.5;
@@ -188,8 +195,8 @@ function trigger60SecondEvent()
   else if (randomting < 4)
   {
     //venstre
-    x1 = -20;
-    y1 = canvaHøjde/4;
+    x1 = -canvaBredde/2 - 20;
+    y1 = -canvaHøjde/4;
     bredde1 = 20;
     højde1 = canvaHøjde/2;
     fart1 = 0.5;
@@ -207,8 +214,8 @@ function trigger60SecondEvent()
   else if (randomting < 5)
   {
     //højre
-    x1 = canvaBredde + 20;
-    y1 = canvaHøjde/4;
+    x1 = canvaBredde/2 + 20;
+    y1 = -canvaHøjde/4;
     bredde1 = 20;
     højde1 = canvaHøjde/2;
     fart1 = 0.5;
@@ -226,16 +233,16 @@ function trigger60SecondEvent()
   else if (randomting < 6)
   {
     //Side Side venstre top
-    x1 = -20;
-    y1 = canvaHøjde/4;
+    x1 = -canvaBredde/2 - 20;
+    y1 = -canvaHøjde/4 ;
     bredde1 = 20;
     højde1 = canvaHøjde/4;
     fart1 = 0.5;
     retningY1 = 0;
     retningX1 = 1;
 
-    x2 = canvaBredde + 20;
-    y2 = canvaHøjde/4*2;
+    x2 = canvaBredde/2 + 20;
+    y2 = 0;
     bredde2 = 20;
     højde2 = canvaHøjde/4;
     fart2 = 0.5;
@@ -245,36 +252,36 @@ function trigger60SecondEvent()
   else if (randomting < 7)
   {
     //Side Side højre top
-    x2 = -20;
-    y2 = canvaHøjde/4;
-    bredde2 = 20;
-    højde2 = canvaHøjde/4;
-    fart2 = 0.5;
-    retningY2 = 0;
-    retningX2 = 1;
-
-    x1 = canvaBredde + 20;
-    y1 = canvaHøjde/4*2;
+    x1 = canvaBredde/2 - 20;
+    y1 = -canvaHøjde/4 ;
     bredde1 = 20;
     højde1 = canvaHøjde/4;
     fart1 = 0.5;
     retningY1 = 0;
     retningX1 = -1;
 
+    x2 = -canvaBredde/2 + 20;
+    y2 = 0;
+    bredde2 = 20;
+    højde2 = canvaHøjde/4;
+    fart2 = 0.5;
+    retningY2 = 0;
+    retningX2 = 1;
+
   }
   else if (randomting < 8)
   {
     //over-under venstre top
-    x1 = canvaBredde/4;
-    y1 = -20;
+    x1 = -canvaBredde/4;
+    y1 = -canvaHøjde/2 - 20;
     bredde1 = canvaBredde/4;
     højde1 = 20;
     fart1 = 0.5;
     retningY1 = 1;
     retningX1 = 0;
 
-    x2 = canvaBredde/4*2;
-    y2 = canvaHøjde + 20;
+    x2 = 0;
+    y2 = canvaHøjde/2 + 20;
     bredde2 = canvaBredde/4;
     højde2 = 20;
     fart2 = 0.5;
@@ -284,26 +291,30 @@ function trigger60SecondEvent()
   else if (randomting < 9)
   {
     //over-under højre top
-    x1 = canvaBredde/4*2;
-    y1 = -20;
+    x1 = 0;
+    y1 = -canvaHøjde/2 - 20;
     bredde1 = canvaBredde/4;
     højde1 = 20;
     fart1 = 0.5;
-    retningY1 = 1;
+    retningY1 = -1;
     retningX1 = 0;
 
     x2 = canvaBredde/4;
-    y2 = canvaHøjde + 20;
+    y2 = canvaHøjde/2 + 20;
     bredde2 = canvaBredde/4;
     højde2 = 20;
     fart2 = 0.5;
-    retningY2 = -1;
+    retningY2 = 1;
     retningX2 = 0;
   }
 
 
   if(SolidVæggeforhindringTjek)
   {
+
+
+
+
     solidVægForhindringer.push(new SolidVæg(x1, y1, bredde1, højde1, fart1, retningY1, retningX1));
     solidVægForhindringer.push(new SolidVæg(x2, y2, bredde2, højde2, fart2, retningY2, retningX2));
   } //gør x eller y større for at skabe et delay mellem de to solid væg forhindringer
