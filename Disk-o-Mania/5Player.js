@@ -117,7 +117,7 @@ function PlayerDraw()
       let kollisionstjek = Kollision(drejdeKoor[0], drejdeKoor[1], rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height);
       
       //Spiller "glider"på forhindringer
-      if (kollisionstjek.tjek)
+      if (kollisionstjek)
       {
         SpillersHastighed( forhindringer[i].angle, forhindringer[i].angleSpeed, afstandTilCentrum);
       } 

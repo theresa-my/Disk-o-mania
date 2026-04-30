@@ -13,6 +13,9 @@ function setupSpil()
   //til skiven
   skiveDiameter = 500;
 
+  //tidstageren til farveskift
+  tidsTager = 0;
+
  
   //nye roterende objekter
   //skiven
@@ -40,16 +43,29 @@ function drawSpil()
   stroke(100);
   
   //Lav farve på is level + tegn cirkle
+  //Timer der sikrer at vi ikke får epilipsi
+
+  tidsTager = tidsTager + 1;
+  
   push();
     if (IsTjek)
     {
-      fill( 144, 195, 232);
+      if (tidsTager > 60)
+      {
+        let r = random (0, 100)
+        let g = random (0, 150)
+        let b = random (150, 255)
+        tidsTager = 0;
+        fill( r, g, b);
+      }
+      
     }
       else 
     {
       fill (0,0,0);
     }
     //tegner og rotere skiven
+    
     cirkel.roter(0,0, skiveDiameter);
   pop();
 

@@ -59,8 +59,9 @@ function Kollision(circleX, circleY, diameter, firkantX, firkantY, firkantW, fir
     
      if (distanc <= diameter/2) 
      {
-       fill(255,0,0);
+      //Skal slettes
        text("Game Over", 0, 0);
+       ////////////////////////
 
       if (koldir == "op") 
       {
@@ -81,7 +82,7 @@ function Kollision(circleX, circleY, diameter, firkantX, firkantY, firkantW, fir
         circleX -= 1.7;
       }
 
-      return { tjek: true, x: circleX, y: circleY };
+      return true;
      }
 
      return false;
@@ -149,16 +150,6 @@ function knap(forhindring, forhindringTjek, knapX, knapY, knapW, knapH)
 
     return forhindringTjek; 
 }
-
-
-
-//////////SKAL DEN SLETTES??////////////
-function SpillerHastighedGlobal(hastighedGlobal)
-{
-    xPlayerHastighed = hastighedGlobal;
-    yPlayerHastighed = 0;
-}
-////////////////////////////////////////
 
 //Hvad der sker når der er kollision mellem spiller og  firkant forhindring
 
