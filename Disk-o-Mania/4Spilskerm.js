@@ -52,9 +52,6 @@ function drawSpil()
   //Timer der sikrer at vi ikke får epilipsi
 
   tidsTager = tidsTager + 1;
-  
-
-
   push();
     if (IsTjek)
     {
