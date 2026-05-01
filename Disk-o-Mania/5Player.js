@@ -64,8 +64,13 @@ function PlayerDraw()
     push();
       fill(255,0,0);
       circle(xPlayer, yPlayer, rPlayer);
+
+      fill(255) //Øjne
       circle(xPlayer + cos(dirPlayer-PI/4)*10, yPlayer + sin(dirPlayer-PI/4)*10, 10);
       circle(xPlayer + cos(dirPlayer+PI/4)*10, yPlayer + sin(dirPlayer+PI/4)*10, 10);
+      fill(0) //Pupiller
+      circle(xPlayer + cos(dirPlayer-PI/4)*10, yPlayer + sin(dirPlayer-PI/4)*10, 5);
+      circle(xPlayer + cos(dirPlayer+PI/4)*10, yPlayer + sin(dirPlayer+PI/4)*10, 5);
     pop();
 
 
