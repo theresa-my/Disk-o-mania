@@ -26,7 +26,11 @@ function ForhindringerTimeingSetup()
 
     //rødkant
     rødeKanter = [];
-    
+    for (let i = 0; i < 1; i++)
+    {
+      rødeKanter.push(new RoterendeObjekt(0,aktuelAngleSpeed+0.003 ,"firkant"))
+      rødeKanter.push(new RoterendeObjekt(PI,aktuelAngleSpeed+0.003 ,"firkant"))
+    }
 }
 
 
@@ -86,7 +90,17 @@ function ForhindringerTimeingDraw()
     {
       forhindringer[i].roter(0, 100, 30, 60);
     }
+
+    //print rø dkant
+    for (let i = 0; i < rødeKanter.length; i++)
+    {
+      push();
+        fill(255, 0, 0)
+        rødeKanter[i].roter(30, 100, 5, 60);
+      pop();
+    }
   }
+
 
 
 
