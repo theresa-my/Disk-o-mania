@@ -13,6 +13,7 @@ function drawGameover()
       textAlign(CENTER, CENTER);
       textFont("Impact");
       text ("GAME OVER", canvaBredde/2, canvaHøjde/2);
+      text ("overlevet i: " + GameTimeSeconds + "s", canvaBredde/2, canvaHøjde/2 + 100);
     pop();
     
     //Timer der sikrer at man har tid til at være i GameOver

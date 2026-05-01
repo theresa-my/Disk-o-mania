@@ -19,7 +19,7 @@ function drawStart()
         textSize(30);
         textFont("Impact");
         textAlign(CENTER, CENTER);
-        text ("Click to start", canvaBredde/2, canvaHøjde/2 + 100);
+        text ("Tryk mellemrum for at starte", canvaBredde/2, canvaHøjde/2 + 100);
     pop();
 
 

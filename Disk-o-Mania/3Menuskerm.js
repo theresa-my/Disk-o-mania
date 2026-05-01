@@ -38,7 +38,7 @@ function drawMenu()
     fill(255,0,0);
     textSize(30);
     textFont("Impact");
-    text ("Click to start", 350, 400);
+    text ("Tryk mellemrum for at starte", 200, 400);
   pop();
 
   //Knappesystemet
