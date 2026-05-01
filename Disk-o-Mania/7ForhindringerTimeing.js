@@ -4,6 +4,7 @@ function ForhindringerTimeingSetup()
    last30SecondMark = 0;
    last60SecondMark = 0;
     randomting = 0;
+  GameTimeSeconds = 0;
   
     //Lav de første forhindringsbolde
     Forhindringerbolde = []
@@ -20,16 +21,16 @@ function ForhindringerTimeingSetup()
     forhindringer = [];
     for (let i = 0; i < 1; i++)
     {
-      forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed+0.003 ,"firkant"))
-      forhindringer.push(new RoterendeObjekt(PI,aktuelAngleSpeed+0.003 ,"firkant"))
+      forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed + 0.01 ,"firkant"))
+      forhindringer.push(new RoterendeObjekt(PI,aktuelAngleSpeed + 0.01,"firkant"))
     }
 
     //rødkant
     rødeKanter = [];
     for (let i = 0; i < 1; i++)
     {
-      rødeKanter.push(new RoterendeObjekt(0,aktuelAngleSpeed+0.003 ,"firkant"))
-      rødeKanter.push(new RoterendeObjekt(PI,aktuelAngleSpeed+0.003 ,"firkant"))
+      rødeKanter.push(new RoterendeObjekt(0,aktuelAngleSpeed+0.01 ,"firkant"))
+      rødeKanter.push(new RoterendeObjekt(PI,aktuelAngleSpeed+0.01 ,"firkant"))
     }
 }
 
@@ -44,13 +45,13 @@ function ForhindringerTimeingDraw()
  
   
   // Konveter frames til sekunder (går ud fra 60 FPS)
-  let GameTimeSeconds = Math.floor(GameTime / 60);
+  GameTimeSeconds = Math.floor(GameTime / 60);
   //Spille tid printet på spilleskærm
   push();
     fill(255);
     textSize(32);
   text(GameTimeSeconds, 300, -250);
-  text(randomting, 300, -200);
+  //text(randomting, 300, -200);
   pop();
 
   // Check for 30-second milestones

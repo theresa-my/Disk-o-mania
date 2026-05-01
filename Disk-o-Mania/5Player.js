@@ -127,8 +127,22 @@ function PlayerDraw()
 
     }
 
+    circle(0,0,60) //Centrum cirkel
+    if (KollisionCirkel(0,0,60,xPlayer,yPlayer,rPlayer)) //Kollision med centrum cirkel
+    {
+      xPlayerHastighed *= -1;
+      yPlayerHastighed *= -1;
+
+    }
+
+
+
+
+
+
+
     //Kollision med yderkanten
-    if (afstandTilCentrum > 300)
+    if (afstandTilCentrum > 280)
     {
      state = "gameOver";
     }

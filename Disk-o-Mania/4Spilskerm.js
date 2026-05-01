@@ -25,6 +25,7 @@ function setupSpil()
   //nye roterende objekter
   //skiven
   cirkel = new RoterendeObjekt(0,aktuelAngleSpeed ,"cirkel")
+
   //Firkanter der "ligger" på forhindring
   firkant1 = new RoterendeObjekt(0.0*PI,aktuelAngleSpeed ,"firkant")
   firkant2 = new RoterendeObjekt(0.5*PI,aktuelAngleSpeed ,"firkant")
@@ -80,6 +81,7 @@ function drawSpil()
     fill (rød, grøn, blå);
 
     cirkel.roter(0,0, skiveDiameter);
+
   pop();
 
   //tegn roterede firkanter der "Ligger" på skiven
