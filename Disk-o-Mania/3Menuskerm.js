@@ -43,10 +43,10 @@ function drawMenu()
   pop();
 
   //Knappesystemet
-  FirkantforhindringTjek = knap("Firkantforhindring", FirkantforhindringTjek, 150, 450, 200, 50);
-  BoldeforhindringTjek = knap("Boldeforhindring", BoldeforhindringTjek, 150, 400, 200, 50);
-  VæggeforhindringTjek = knap("Væggeforhindring", VæggeforhindringTjek, 350, 450, 200, 50);
-  HulforhindringTjek = knap("Hulforhindring", HulforhindringTjek, 350, 400, 200, 50);
-  IsTjek = knap("Is", IsTjek, 550, 400, 200, 50);
-  SolidVæggeforhindringTjek = knap("SolidVæggeforhindring", SolidVæggeforhindringTjek, 550, 450, 200, 50); 
+  FirkantforhindringTjek = knap("Firkantforhindring", FirkantforhindringTjek, 100, 430, 200, 50);
+  BoldeforhindringTjek = knap("Boldeforhindring", BoldeforhindringTjek, 100, 500, 200, 50);
+  VæggeforhindringTjek = knap("Væggeforhindring", VæggeforhindringTjek, 300, 430, 200, 50);
+  HulforhindringTjek = knap("Hulforhindring", HulforhindringTjek, 300, 500, 200, 50);
+  IsTjek = knap("Is", IsTjek, 500, 500, 200, 50);
+  SolidVæggeforhindringTjek = knap("SolidVæggeforhindring", SolidVæggeforhindringTjek, 500, 430, 200, 50); 
 }
