@@ -9,7 +9,6 @@ function setup()
     //starter spillet i menu
     state = "start";
 
-    //Hvad gør det her?
     stateold = 0;
     angleMode(RADIANS);
 }
