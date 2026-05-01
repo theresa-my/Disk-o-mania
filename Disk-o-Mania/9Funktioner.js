@@ -59,30 +59,6 @@ function Kollision(circleX, circleY, diameter, firkantX, firkantY, firkantW, fir
     
      if (distanc <= diameter/2) 
      {
-      //Skal slettes
-       text("Game Over", 0, 0);
-       ////////////////////////
-/////////skal det her slettes???/////////////7
-      if (koldir == "op") 
-      {
-        circleY = firkantY - diameter/2
-        circleY -= 1.7;
-  
-      } else if (koldir == "nede")
-      {
-        circleY = firkantY + firkantH + diameter/2
-        circleY += 1.7;
-      } else if (koldir == "højre")
-      {
-        circleX = firkantX + firkantW + diameter/2
-        circleX  += 1.7;
-      } else if (koldir == "venstre")
-      {
-        circleX = firkantX - diameter/2
-        circleX -= 1.7;
-      }
-      /////////////////////////////////////////////////
-
       return true;
      }
 

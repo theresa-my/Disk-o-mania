@@ -23,6 +23,10 @@ function ForhindringerTimeingSetup()
       forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed+0.003 ,"firkant"))
       forhindringer.push(new RoterendeObjekt(PI,aktuelAngleSpeed+0.003 ,"firkant"))
     }
+
+    //rødkant
+    rødeKanter = [];
+    
 }
 
 

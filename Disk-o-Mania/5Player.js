@@ -9,11 +9,6 @@ function PlayerSetup()
     // spillerens radius (størrelse)
     rPlayer = 20;  
     
-    ////////////slet senere//////////
-    // afstand fra spiller til centrum
-    //playerDistance = dist(0, 0, xPlayer, yPlayer);  
-    //////////////////////////////////
-    
     //vinkel for spiller
     thetaPlayer = atan2(yPlayer, xPlayer);
     dirPlayer = 1;
@@ -126,7 +121,7 @@ function PlayerDraw()
       if (kollitionstjek)
       {
        KollitionVinkel( forhindringer[i].angle, forhindringer[i].angleSpeed, afstandTilCentrum);
-       Firkantkollition(forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidht, forhindringer[i].height, forhindringer[i].angleSpeed*cos(forhindringer[i].angle), forhindringer[i].angleSpeed*sin(forhindringer[i].angle),drejdeKoor[0], drejdeKoor[1], rPlayer);
+       //Firkantkollition(forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidht, forhindringer[i].height, forhindringer[i].angleSpeed*cos(forhindringer[i].angle), forhindringer[i].angleSpeed*sin(forhindringer[i].angle),drejdeKoor[0], drejdeKoor[1], rPlayer);
       } 
 
 
