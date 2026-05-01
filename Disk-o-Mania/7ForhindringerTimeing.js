@@ -21,6 +21,7 @@ function ForhindringerTimeingSetup()
     forhindringer = [];
     for (let i = 0; i < 1; i++)
     {
+      
       forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed + 0.01 ,"firkant"))
       forhindringer.push(new RoterendeObjekt(PI,aktuelAngleSpeed + 0.01,"firkant"))
     }
@@ -89,7 +90,10 @@ function ForhindringerTimeingDraw()
     //Firkant forhindringer
     for (let i = 0; i < forhindringer.length; i++)
     {
-      forhindringer[i].roter(0, 100, 30, 60);
+      push();
+        fill(245, 66, 177)
+        forhindringer[i].roter(0, 100, 30, 60);
+      pop();
     }
 
     //print rø dkant
@@ -140,7 +144,7 @@ function trigger30SecondEvent()
   {
     for (let i = 0; i < 5; i++)
     {
-      vægForhindringer.push(new VægForhindring(60, 60, 0.5, 1));
+      vægForhindringer.push(new VægForhindring(60, 60, 1, 1));
     }
   }
 }

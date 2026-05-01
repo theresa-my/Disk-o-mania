@@ -102,7 +102,7 @@ class SolidVæg
   tegn()
   {
     push();
-      fill(28, 90, 166);
+      fill(245, 149, 65);
       rect(this.x, this.y, this.bredde, this.højde);
     pop();
   }
@@ -184,7 +184,7 @@ class VægForhindring
     tegn()
     {
         push();
-          fill(118, 99, 230);
+          fill(81, 245, 66);
           rect(this.x, this.y, this.bredde, this.højde);
         pop();
     }
