@@ -21,6 +21,7 @@ function ForhindringerTimeingSetup()
     for (let i = 0; i < 1; i++)
     {
       forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed+0.003 ,"firkant"))
+      forhindringer.push(new RoterendeObjekt(PI,aktuelAngleSpeed+0.003 ,"firkant"))
     }
 }
 
@@ -311,10 +312,6 @@ function trigger60SecondEvent()
 
   if(SolidVæggeforhindringTjek)
   {
-
-
-
-
     solidVægForhindringer.push(new SolidVæg(x1, y1, bredde1, højde1, fart1, retningY1, retningX1));
     solidVægForhindringer.push(new SolidVæg(x2, y2, bredde2, højde2, fart2, retningY2, retningX2));
   } //gør x eller y større for at skabe et delay mellem de to solid væg forhindringer
