@@ -125,6 +125,7 @@ function PlayerDraw()
       if (kollisionstjek)
       {
         SpillersHastighed( forhindringer[i].angle, forhindringer[i].angleSpeed, afstandTilCentrum);
+        
       } 
     }
 

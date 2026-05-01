@@ -311,10 +311,6 @@ function trigger60SecondEvent()
 
   if(SolidVæggeforhindringTjek)
   {
-
-
-
-
     solidVægForhindringer.push(new SolidVæg(x1, y1, bredde1, højde1, fart1, retningY1, retningX1));
     solidVægForhindringer.push(new SolidVæg(x2, y2, bredde2, højde2, fart2, retningY2, retningX2));
   } //gør x eller y større for at skabe et delay mellem de to solid væg forhindringer
