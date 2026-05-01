@@ -52,6 +52,9 @@ function drawSpil()
 
   tidsTager = tidsTager + 1;
   
+  //hastighed stiger med tid
+  aktuelAngleSpeed = aktuelAngleSpeed + 0.00001;
+
   push();
     if (IsTjek)
     {
