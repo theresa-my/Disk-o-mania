@@ -116,7 +116,7 @@ class SolidVæg
       let kollisiontjek = Kollision(xPlayer, yPlayer, rPlayer, this.x, this.y, this.bredde, this.højde);
       if (kollisiontjek)
       {
-        //Hvad der sker ved kollision 
+        Firkantkollition(this.x, this.y, this.bredde, this.højde, this.fart*this.retningX, this.fart*this.retningY, xPlayer, yPlayer, rPlayer);
       }
     }
 }

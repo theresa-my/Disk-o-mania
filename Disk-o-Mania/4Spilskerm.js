@@ -11,7 +11,7 @@ function setupSpil()
   angleMode(radians);
 
   //til skiven
-  skiveDiameter = 500;
+  skiveDiameter = 550;
 
   //tidstageren til farveskift
   tidsTager = 0;
