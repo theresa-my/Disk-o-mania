@@ -24,6 +24,7 @@ function PlayerSetup()
 
     //Acceleration i forhold til vinkelhastighed og radius
     accCentripital = 0;
+    kollisionTjek = [false, 0, 0];
 }
 
 
@@ -119,14 +120,16 @@ function PlayerDraw()
       drejdeKoor = DrejCirkel(xPlayer, yPlayer, forhindringer[i].angle);
       
       //Tjek for kollision
-      let kollisionstjek = Kollision(drejdeKoor[0], drejdeKoor[1], rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height);
+     let kollitionstjek = Kollision(drejdeKoor[0], drejdeKoor[1], rPlayer, forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidth, forhindringer[i].height);
       
       //Spiller "glider"på forhindringer
-      if (kollisionstjek)
+      if (kollitionstjek)
       {
-        SpillersHastighed( forhindringer[i].angle, forhindringer[i].angleSpeed, afstandTilCentrum);
-        
+       KollitionVinkel( forhindringer[i].angle, forhindringer[i].angleSpeed, afstandTilCentrum);
+       Firkantkollition(forhindringer[i].x, forhindringer[i].y, forhindringer[i].diameterwidht, forhindringer[i].height, forhindringer[i].angleSpeed*cos(forhindringer[i].angle), forhindringer[i].angleSpeed*sin(forhindringer[i].angle),drejdeKoor[0], drejdeKoor[1], rPlayer);
       } 
+
+
     }
 
     //Kollision med yderkanten

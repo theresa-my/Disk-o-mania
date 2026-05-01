@@ -21,6 +21,7 @@ function ForhindringerTimeingSetup()
     for (let i = 0; i < 1; i++)
     {
       forhindringer.push(new RoterendeObjekt(0,aktuelAngleSpeed+0.003 ,"firkant"))
+      forhindringer.push(new RoterendeObjekt(PI,aktuelAngleSpeed+0.003 ,"firkant"))
     }
 }
 

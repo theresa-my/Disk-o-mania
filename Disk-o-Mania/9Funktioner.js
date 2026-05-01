@@ -92,7 +92,7 @@ function Kollision(circleX, circleY, diameter, firkantX, firkantY, firkantW, fir
   
 
 //funktion der "glider" spilleren på forhindringerne
-function SpillersHastighed(vinkel, angleSpeed, radius)
+function KollitionVinkel (vinkel, angleSpeed, radius)
 {
       xPlayerHastighed = -cos(vinkel) * angleSpeed * radius;
       yPlayerHastighed = -sin(vinkel) * angleSpeed * radius;
