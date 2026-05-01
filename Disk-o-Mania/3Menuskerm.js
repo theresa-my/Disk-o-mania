@@ -17,13 +17,12 @@ function drawMenu()
 {
    //Timer der sikrer at ma nhar tid til at være i menuen
   transitiontimer++;
- //Skal vi slette det her?!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  //fill(222)
 
   //Skift fra menu til spil
-  if (keyIsPressed && transitiontimer > 30)
+  if (keyIsPressed && transitiontimer > 60)
   {
       state = "spil";
+      transitiontimer = 0;
   }
     
   //Tekst og layout til menuen

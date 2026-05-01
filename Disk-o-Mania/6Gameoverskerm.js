@@ -15,9 +15,13 @@ function drawGameover()
       text ("GAME OVER", canvaBredde/2, canvaHøjde/2);
     pop();
     
-    //Skift til menu hvis der trykkes på en knap
-    if (keyIsPressed)
-     {
-         state = "menu";
-     }
+    //Timer der sikrer at man har tid til at være i GameOver
+   transitiontimer++;
+
+  //Skift fra GameOver til menu
+  if (keyIsPressed && transitiontimer > 60)
+  {
+      state = "menu";
+      transitiontimer = 0;
+  }
 }
