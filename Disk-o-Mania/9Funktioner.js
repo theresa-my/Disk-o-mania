@@ -30,25 +30,20 @@ function Kollision(circleX, circleY, diameter, firkantX, firkantY, firkantW, fir
      if (circleX < firkantX)           
       {
         testX = firkantX;        // left edge
-        koldir = "venstre";
       }
      
      else if (circleX > firkantX + firkantW)   
       {
         testX = firkantX + firkantW;     // right edge
-        koldir = "højre";
       }
-
 
      if (circleY < firkantY)   
       {        
-        testY = firkantY;       // top edge
-        koldir = "op";    
+        testY = firkantY;       // top edge  
       }
      else if (circleY > firkantY + firkantH)   
       {
         testY = firkantY + firkantH;     // bottom edge
-        koldir = "nede";
       }
 
 

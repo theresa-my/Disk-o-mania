@@ -135,12 +135,6 @@ function PlayerDraw()
 
     }
 
-
-
-
-
-
-
     //Kollision med yderkanten
     if (afstandTilCentrum > 280)
     {
