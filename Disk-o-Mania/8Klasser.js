@@ -213,6 +213,10 @@ class VægForhindring
 }
 
 
+
+
+
+
 class BoldeForhindring
   {
     constructor(BoldeforhindringStartVinkel, BoldeforhindringHastighed, diameter,spredning)
