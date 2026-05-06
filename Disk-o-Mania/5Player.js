@@ -70,10 +70,11 @@ function PlayerDraw()
     pop();
 
 
-    //Udregn vinkelhastighed og og afstand fra spiller til centrum (0,0)
+
+
+    //Udregn vinkelhastighed og afstand fra spiller til centrum (0,0)
     vinkelHastighed = 2*PI/(1/(aktuelAngleSpeed * 60))*0.02
     afstandTilCentrum = Math.sqrt(xPlayer**2 + yPlayer**2)
-  
   
     //Is eller ej
     if (IsTjek)
@@ -134,6 +135,7 @@ function PlayerDraw()
       yPlayerHastighed *= -1;
 
     }
+
 
     //Kollision med yderkanten
     if (afstandTilCentrum > 280)
