@@ -1,8 +1,8 @@
 function ForhindringerTimeingSetup()
 {
    GameTime = 0;
-   last30SecondMark = 0;
-   last60SecondMark = 0;
+   last5SecondMark = 0;
+   last15SecondMark = 0;
     randomting = 0;
   GameTimeSeconds = 0;
   
@@ -55,23 +55,23 @@ function ForhindringerTimeingDraw()
   //text(randomting, 300, -200);
   pop();
 
-  // Check for 30-second milestones
-  let current30Mark = Math.floor(GameTimeSeconds / 5) * 5;
-  if (current30Mark > last30SecondMark && current30Mark > 0) 
+  // Check for 5-second milestones
+  let current5Mark = Math.floor(GameTimeSeconds / 5) * 5;
+  if (current5Mark > last5SecondMark && current5Mark > 0) 
   {
-    // Trigger 30-second event
-    trigger30SecondEvent();
-    last30SecondMark = current30Mark;
+    // Trigger 5-second event
+    trigger5SecondEvent();
+    last5SecondMark = current5Mark;
   }
   
 
-  // Check for 60-second milestones
-  let current60Mark = Math.floor(GameTimeSeconds / 15) * 15;
-  if (current60Mark > last60SecondMark && current60Mark > 0) 
+  // Check for 15-second milestones
+  let current15Mark = Math.floor(GameTimeSeconds / 15) * 15;
+  if (current15Mark > last15SecondMark && current15Mark > 0) 
   {
-    // Trigger 60-second event
-    trigger60SecondEvent();
-    last60SecondMark = current60Mark;
+    // Trigger 15-second event
+    trigger15SecondEvent();
+    last15SecondMark = current15Mark;
   }
 
 
@@ -127,7 +127,7 @@ function ForhindringerTimeingDraw()
 
 
 
-function trigger30SecondEvent() 
+function trigger5SecondEvent() 
 {
   //Bolde forhindringer
   if (BoldeforhindringTjek)
@@ -155,7 +155,7 @@ function trigger30SecondEvent()
 
 
 
-function trigger60SecondEvent()
+function trigger15SecondEvent()
 {
   randomting = random(1,9);
   //randomting = 7.5
