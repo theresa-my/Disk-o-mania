@@ -1,4 +1,4 @@
-
+// lavet af Theresa og Noah
 
 function setup() 
 {
